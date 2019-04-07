@@ -1,0 +1,34 @@
+.navigation {
+    height: 100px;
+    padding: 30px 20px;
+
+    &__logo {
+        float: left;
+
+        &-img {
+            width: 250px;
+        }
+    }
+
+    &__item {
+        float: right;
+        list-style: none;
+
+        &-menu {
+            list-style: none;
+            display: inline-block;
+            padding: 10px 20px;
+
+            a {
+                font-size: 20px;
+                text-decoration: none;
+                color: $color-primary;
+                transition: border-bottom .2s;
+                padding-bottom:10px; 
+                &:hover{
+                    border-bottom: 2px solid $color-primary;
+                }
+            }
+        }
+    }
+}
