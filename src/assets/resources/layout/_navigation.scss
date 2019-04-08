@@ -1,6 +1,8 @@
 .navigation {
     height: 100px;
     padding: 30px 20px;
+    margin: 0 auto;
+    max-width: 960px;
 
     &__logo {
         float: left;

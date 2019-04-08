@@ -1,15 +1,22 @@
-@import "abstracts/variable";
-@import "abstracts/mixins";
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+/*vendor*/
+@import "./vendor/grid";
+
+/*resources */
+@import "./resources/abstracts/animate";
+@import "./resources/abstracts/mixins";
+@import "./resources/abstracts/variable";
 
 
 
-@import "base/base";
-@import "base/typography";
+@import "./resources/base/base";
+@import "./resources/base/typography";
 
 
 
-@import "layout/navigation";
-@import "layout/footer";
+@import "./resources/layout/navigation";
+@import "./resources/layout/footer";
 
 
-@import "pages/home";
+@import "./resources/pages/home";
+

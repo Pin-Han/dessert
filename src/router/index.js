@@ -1,25 +1,39 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home';
+import Layout from '@/views/Layout';
 Vue.use(Router);
 
 export const constantRouterMap = [
+  // {
+  //   path: '/',
+  //   name: 'home',
+  //   component: Home,
+  // }
+  // ,
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    component: Layout,
+    //使所有頁面上下不變，只改動中間畫面(children)
+    children: [{
+      path: '/',
+      component: Home,
+      name: 'Home',
+
+    }, {
+      path: '/about',
+      component: () => import( /* webpackChunkName: "about" */ '../views/About'),
+      //當切換到頁面後，才會執行該檔案
+      name: 'About',
+
+    }]
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About'),
-  },
+
 ];
 
 export default new Router({
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRouterMap,
 });

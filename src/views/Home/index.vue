@@ -1,19 +1,25 @@
 <template>
   <div class="home">
     <!-- 首頁的圖片大圖 -->
-    <img src="@/assets/image/slide.jpg" alt="slide" class="home__img">
-    <div class="topic">
-      <div class="topic__item">
-        <img src="@/assets/image/topic_1.jpg" alt="topic1" class="topic__item-img">
-        <p class="topic__item-font">本日精選</p>
+    <div class="home__img"></div>
+    <div class="section-featured">
+      <div class="topic">
+        <div class="topic__img topic__img-1"></div>
+        <div class="topic__text">
+          <p>本日精選</p>
+        </div>
       </div>
-      <div class="topic__item">
-        <img src="@/assets/image/topic_2.jpg" alt="topic2" class="topic__item-img">
-        <p class="topic__item-font">人氣推薦</p>
+      <div class="topic">
+                <div class="topic__img topic__img-2"></div>
+        <div class="topic__text">
+          <p>本日精選</p>
+        </div>
       </div>
-      <div class="topic__item">
-        <img src="@/assets/image/topic_3.jpg" alt="topic3" class="topic__item-img">
-        <p class="topic__item-font">新品上市</p>
+      <div class="topic">
+                <div class="topic__img topic__img-3"></div>
+        <div class="topic__text">
+          <p>本日精選</p>
+        </div>
       </div>
     </div>
   </div>
@@ -22,13 +28,10 @@
 <script>
 import { login } from "@/api/user";
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld";
 
 export default {
   name: "home",
-  components: {
-    HelloWorld
-  },
+  components: {},
   methods: {
     logfn() {
       //   const data ={

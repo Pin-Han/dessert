@@ -1,0 +1,76 @@
+.home {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 940px;
+
+    &__img {
+        //首頁大圖
+        width: 100%;
+        background-image: url('assets/image/slide.jpg');
+        height: 496px;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.section-featured {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.topic {
+    width: 33.3333333%;
+    height: 260px;
+    float: left;
+    position: relative;
+
+    &__img {
+        height: inherit;
+        background-position: center;
+        background-size: cover;
+        filter: blur(3px);
+        border-radius: 3px;
+        overflow: hidden;
+
+        &-1 {
+            background-image: url('assets/image/topic_1.jpg');
+        }
+
+        &-2 {
+            background-image: url('assets/image/topic_2.jpg');
+        }
+
+        &-3 {
+            background-image: url('assets/image/topic_3.jpg');
+        }
+    }
+
+    &__text {
+        position: absolute;
+        top: 0;
+        background-color: $color-primary;
+        height: 100%;
+        width: 100%;
+        opacity: 0.8;
+        color: #fff;
+        transition: all 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            writing-mode: vertical-rl;
+            text-align: center;
+            letter-spacing: 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            overflow: hidden;
+            font-size: 2.5rem;
+        }
+
+        &:hover {
+            background-color: $color-yellow-light;
+            color: $color-primary;
+        }
+    }
+}
