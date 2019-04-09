@@ -10,15 +10,15 @@
         </div>
       </div>
       <div class="topic">
-                <div class="topic__img topic__img-2"></div>
+        <div class="topic__img topic__img-2"></div>
         <div class="topic__text">
-          <p>本日精選</p>
+          <p>人氣推薦</p>
         </div>
       </div>
       <div class="topic">
-                <div class="topic__img topic__img-3"></div>
+        <div class="topic__img topic__img-3"></div>
         <div class="topic__text">
-          <p>本日精選</p>
+          <p>新品上市</p>
         </div>
       </div>
     </div>

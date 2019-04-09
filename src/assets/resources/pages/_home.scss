@@ -16,6 +16,8 @@
 .section-featured {
     max-width: 800px;
     margin: 0 auto;
+    height: 265px;
+    transform: translateY(-40%);
 }
 
 .topic {
@@ -23,6 +25,7 @@
     height: 260px;
     float: left;
     position: relative;
+    overflow: hidden;
 
     &__img {
         height: inherit;
