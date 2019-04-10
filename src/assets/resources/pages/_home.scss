@@ -1,15 +1,16 @@
 .home {
-    max-width: 960px;
-    margin: 0 auto;
+    width: 100%;
     height: 940px;
 
     &__img {
         //首頁大圖
-        width: 100%;
+
         background-image: url('assets/image/slide.jpg');
         height: 496px;
         background-position: center;
         background-size: cover;
+        @include settingcenter;
+
     }
 }
 
@@ -31,7 +32,7 @@
         height: inherit;
         background-position: center;
         background-size: cover;
-        filter: blur(3px);
+        // filter: blur(3px);
         border-radius: 3px;
         overflow: hidden;
 
@@ -76,4 +77,56 @@
             color: $color-primary;
         }
     }
+}
+
+.section-choose {
+    width: 100%;
+    padding: 40px 30px;
+    background-color: $color-main-bg;
+    height: 420px;
+    margin-bottom: 80px;
+}
+
+.whychoose {
+    @include settingcenter;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 460px;
+
+    &__img {
+        background-image: url('assets/image/reason1.jpg');
+        height: 460px;
+        width: 430px;
+        background-position: center;
+        background-size: cover;
+        float: left;
+    }
+
+    &__reason {
+        background-color: orange;
+        height: 460px;
+        width: 450px;
+        // writing-mode: vertical-rl;
+        margin: 0 40px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            line-height: 28px;
+            color: $color-primary;
+            writing-mode: vertical-rl;
+            font-size: 20px;
+            display: inline-block;
+            margin: 0 15px;
+            max-height: 300px;
+            vertical-align: middle;
+
+        }
+    }
+
+    &__whying {}
+
 }

@@ -22,6 +22,19 @@
         </div>
       </div>
     </div>
+    <div class="section-choose">
+      <div class="whychoose">
+        <div class="whychoose__img"></div>
+        <div class="whychoose__reason">
+          <p class="whychoose__reason-1">
+            是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。</p>
+          <p class="whychoose__reason-2">
+            青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。</p>
+        </div>
+
+        <div class="whychoose__whyimg"></div>
+      </div>
+    </div>
   </div>
 </template>
 
