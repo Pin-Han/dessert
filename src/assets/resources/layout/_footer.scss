@@ -10,12 +10,19 @@
 .subscribe{
     margin: 0 auto;
     width: 960px;
+    padding: 30px 0;
+    display: flex;
     &__logo{
         &-img{
             width: 40px;
+            display: flex;
+            vertical-align: middle;
+
         }
         &-text{
-
+            padding: 0 20px;
+            font-size: 20px;
+            color: $color-white;
         }
     }
     &__email{
