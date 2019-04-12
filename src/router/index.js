@@ -27,10 +27,10 @@ export const constantRouterMap = [
       //當切換到頁面後，才會執行該檔案
       name: 'About',
 
-    },{
-      path:'/dessert',
-      component:()=>import('../views/Dessert'),
-      name:'Dessert',
+    }, {
+      path: '/dessert',
+      component: () => import( /* webpackChunkName: "about" */ '../views/Dessert'),
+      name: 'Dessert',
     }]
   },
 
