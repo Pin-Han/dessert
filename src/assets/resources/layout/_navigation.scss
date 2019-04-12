@@ -3,9 +3,10 @@
     padding: 30px 20px;
     margin: 0 auto;
     max-width: 960px;
+    display: flex;
+    justify-content: space-between;
 
     &__logo {
-        float: left;
 
         &-img {
             width: 250px;
@@ -13,7 +14,6 @@
     }
 
     &__item {
-        float: right;
         list-style: none;
 
         &-menu {
@@ -26,8 +26,9 @@
                 text-decoration: none;
                 color: $color-primary;
                 transition: border-bottom .2s;
-                padding-bottom:10px; 
-                &:hover{
+                padding-bottom: 10px;
+
+                &:hover {
                     border-bottom: 2px solid $color-primary;
                 }
             }

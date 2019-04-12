@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home';
 import Layout from '@/views/Layout';
+import Dessert from '@/views/Dessert';
 Vue.use(Router);
 
 export const constantRouterMap = [
@@ -26,6 +27,10 @@ export const constantRouterMap = [
       //當切換到頁面後，才會執行該檔案
       name: 'About',
 
+    },{
+      path:'/dessert',
+      component:()=>import('../views/Dessert'),
+      name:'Dessert',
     }]
   },
 

@@ -10,7 +10,7 @@
           <router-link to="/">Home</router-link>
         </li>
         <li class="navigation__item-menu">
-          <a href="#">Dessert</a>
+          <router-link to="/dessert">Dessert</router-link>
         </li>
         <li class="navigation__item-menu">
           <a href="#">Login</a>

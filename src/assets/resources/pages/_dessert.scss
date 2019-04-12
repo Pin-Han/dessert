@@ -1,0 +1,12 @@
+.dessert{
+    &__img {
+        //首頁大圖
+
+        background-image: url('assets/image/slide.jpg');
+        height: 496px;
+        background-position: center;
+        background-size: cover;
+        @include settingcenter;
+
+    }
+}

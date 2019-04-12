@@ -47,12 +47,11 @@
       </div>
     </div>
     <div class="section-noreason"></div>
-    <div class="section-products row">
-      <div class="product span-1-of-3">
+    <div class="section-products">
+      <div class="product">
         <div class="product__box">
           <img src="@/assets/image/item1.jpg" alt="product" class="product__box-img">
-            <p class="product__box-text">本日精選</p>
-
+          <p class="product__box-text">本日精選</p>
         </div>
         <div class="product__info">
           <div class="product__info-title">焦糖瑪卡龍</div>
@@ -60,10 +59,10 @@
         </div>
         <a href="#" class="product__cart">加入購物車</a>
       </div>
-      <div class="product span-1-of-3">
+      <div class="product">
         <div class="product__box">
           <img src="@/assets/image/item2.jpg" alt="product" class="product__box-img">
-            <p class="product__box-text">本日精選</p>
+          <p class="product__box-text">本日精選</p>
         </div>
         <div class="product__info">
           <div class="product__info-title">焦糖瑪卡龍</div>
@@ -71,10 +70,10 @@
         </div>
         <a href="#" class="product__cart">加入購物車</a>
       </div>
-      <div class="product span-1-of-3">
+      <div class="product">
         <div class="product__box">
           <img src="@/assets/image/item3.jpg" alt="product" class="product__box-img">
-            <p class="product__box-text">本日精選</p>
+          <p class="product__box-text">本日精選</p>
         </div>
         <div class="product__info">
           <div class="product__info-title">焦糖瑪卡龍</div>
