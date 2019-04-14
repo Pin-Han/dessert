@@ -13,10 +13,12 @@
           <router-link to="/dessert">Dessert</router-link>
         </li>
         <li class="navigation__item-menu">
-          <a href="#">Login</a>
+          <router-link to="/Login">Login</router-link>
         </li>
         <li class="navigation__item-menu">
-          <a href="#" class="fas fa-shopping-cart"></a>
+          <router-link to="/Cart">
+            <i class="fas fa-shopping-cart"></i>
+          </router-link>
         </li>
       </ul>
     </div>

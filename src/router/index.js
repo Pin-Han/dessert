@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Home from '@/views/Home';
 import Layout from '@/views/Layout';
 import Dessert from '@/views/Dessert';
+import Login from '@/views/Login';
+import Cart from '@/views/Cart';
 Vue.use(Router);
 
 export const constantRouterMap = [
@@ -31,6 +33,14 @@ export const constantRouterMap = [
       path: '/dessert',
       component: () => import( /* webpackChunkName: "about" */ '../views/Dessert'),
       name: 'Dessert',
+    },{
+      path:'/login',
+      component:()=>import ('../views/Login'),
+      name:'Login',
+    },{
+      path:'/Cart',
+      component:()=>import ('../views/Cart'),
+      name:'Cart',
     }]
   },
 

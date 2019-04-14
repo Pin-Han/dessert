@@ -1,0 +1,11 @@
+.section-cart{
+    @include settingcenter;
+    margin: 20px auto 60px auto;
+    display: flex;
+}
+.shopping{
+    flex: 2;
+}
+.bill{
+    flex: 1;
+}

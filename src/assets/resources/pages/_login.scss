@@ -1,0 +1,98 @@
+.section-login {
+    height: 340px;
+    @include settingcenter;
+    background-color: $color-green-light-1;
+    display: flex;
+    justify-content: space-around;
+    margin: 80px auto;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-primary;
+    height: 380px;
+    flex: 1;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: space-between;
+
+    &__title {
+        text-align: center;
+        color: white;
+        font-size: 40px;
+        margin: 30px 0;
+    }
+
+    &__input {
+        display: flex;
+        justify-content: space-around;
+        margin: 5px auto;
+        height: 60px;
+        line-height: 60px;
+        width: 300px;
+        text-align: center;
+        background-color: $color-white;
+
+        &-icon {
+            color: $color-primary;
+            background-color: $color-white;
+            font-size: 24px;
+        }
+
+        &-content {
+            width: 80%;
+            outline: none;
+            border: none;
+            font-size: 16px;
+        }
+    }
+
+    &__btn {
+        background-color: $color-yellow-light;
+        color: $color-primary;
+        padding: 15px 0;
+        font-size: 25px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.social {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &__title {
+        font-size: 25px;
+        text-align: center;
+        color: $color-primary;
+        margin: 30px 0;
+    }
+
+    &__platform {
+        display: flex;
+        justify-content: space-around;
+        margin: 5px auto;
+        height: 60px;
+        line-height: 60px;
+        width: 300px;
+        text-align: center;
+        background-color: $color-white;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            max-width: 100px;
+            filter: grayscale(1);
+            opacity: .6;
+
+        }
+        &:hover >img{
+            filter: grayscale(0);
+            opacity: 1;
+        }
+    }
+}
