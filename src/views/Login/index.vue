@@ -16,24 +16,23 @@
           <input type="password" class="login__input-content" placeholder="請輸入密碼">
         </div>
         <div class="login__remember">
-<!-- <input type="checkbox" name="" id="">      -->
-<!-- <p>記住我</p> -->
-
-   </div>
-        <button class="login__btn">登入</button>
+          <!-- <input type="checkbox" name="" id="">      -->
+          <!-- <p>記住我</p> -->
+        </div>
+        <div class="login__btn">登入</div>
       </div>
       <div class="social">
         <div class="social__title">
-            <p>連結社群帳號</p>
+          <p>連結社群帳號</p>
         </div>
         <div class="social__platform">
-            <img src="@/assets/image/facebook.png" alt="facebook">
+          <img src="@/assets/image/facebook.png" alt="facebook">
         </div>
         <div class="social__platform">
-            <img src="@/assets/image/google.png" alt="google">
+          <img src="@/assets/image/google.png" alt="google">
         </div>
         <div class="social__platform">
-            <img src="@/assets/image/yahoo.png" alt="yahoo">
+          <img src="@/assets/image/yahoo.png" alt="yahoo">
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="navigation">
-      <div class="navigation__logo">
+      <a class="navigation__logo" href="#/">
         <img src="@/assets/image/logo-all-dark.png" alt="logo" class="navigation__logo-img">
-      </div>
+      </a>
 
       <ul class="navigation__item">
         <li class="navigation__item-menu">

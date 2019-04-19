@@ -2,29 +2,43 @@
   <div>
     <div class="section-cart">
       <div class="shopping">
-        <div class="shopping__title"></div>
+        <div class="shopping__title">您的購物車</div>
         <table class="shopping__info">
           <tbody>
             <tr>
-              <td class="shopping__img"></td>
+              <td class="shopping__img">
+                <img src="@/assets/image/item1.jpg" alt="item1">
+              </td>
               <td class="shopping__name"></td>
               <td class="shopping__select">
-                  <span>-</span>
-                  <input type="text" name="" id="" class="number">
-                  <span>+</span>
+                <span>-</span>
+                <input type="text" name id class="number">
+                <span>+</span>
               </td>
               <td class="shopping__price"></td>
               <td class="shopping__trash">
-                  <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-trash-alt"></i>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="bill">
-<h2>訂單摘要</h2>
+        <div class="bill__title">訂單摘要</div>
+        <div class="bill__price">
+          <p>小計</p>
+          <p>NT$2700</p>
+        </div>
+        <div class="bill__shipping">
+          <p>運費</p>
+          <p>NT$300</p>
+        </div>
+        <div class="bill__total">
+          <p>總共</p>
+          <p>NT$2700</p>
+        </div>
+        <div class="bill__pay">結帳</div>
       </div>
     </div>
-    
   </div>
 </template>
