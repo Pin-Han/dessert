@@ -2,3 +2,45 @@
     max-width: 960px;
     margin: 0 auto;
 }
+
+
+
+@mixin respond($breakpoint) {
+    @if ($breakpoint==phone) {
+        @media (max-width: 600px) {
+            //600px iphone
+            @content
+        }
+
+        ;
+    }
+
+    @if ($breakpoint==tablet) {
+        @media (max-width: 900px) {
+            //900px ipad
+            @content
+        }
+
+        ;
+    }
+
+    @if ($breakpoint==laptop) {
+        @media (max-width: 1200px) {
+            //1200px laptop
+            @content
+        }
+
+        ;
+    }
+
+    @if ($breakpoint==desktop) {
+        @media (min-width: 1200px) {
+            //1800px big-desktop
+            @content
+        }
+
+        ;
+
+    }
+
+}

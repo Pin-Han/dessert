@@ -9,13 +9,15 @@
               <td class="shopping__img">
                 <img src="@/assets/image/item1.jpg" alt="item1">
               </td>
-              <td class="shopping__name"></td>
-              <td class="shopping__select">
-                <span>-</span>
-                <input type="text" name id class="number">
-                <span>+</span>
+              <td class="shopping__name">
+                <p>焦糖馬卡龍</p>
+                <p>NT$450</p>
               </td>
-              <td class="shopping__price"></td>
+              <td class="shopping__select">
+              </td>
+              <td class="shopping__price">
+                <p>NT$900</p>
+              </td>
               <td class="shopping__trash">
                 <i class="fas fa-trash-alt"></i>
               </td>

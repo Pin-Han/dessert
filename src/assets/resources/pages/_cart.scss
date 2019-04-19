@@ -7,7 +7,11 @@
 .shopping {
     margin-right: 20px;
     flex: 2;
-    &__title{
+    font-size: 20px;
+    color: $color-primary;
+    text-align: center;
+
+    &__title {
         color: $color-primary;
         text-align: center;
         background-color: $color-green-light-1;
@@ -15,13 +19,28 @@
         padding: 15px 0;
         font-size: 30px;
     }
-    &__img{
-        img{
-            width: 110px;
 
+    &__info {
+        tr {
+            height: 110px;
+
+            td {
+                padding: 0 10px;
+            }
         }
-        
     }
+
+    &__name {
+        padding: 15px 0;
+    }
+
+    &__img {
+        img {
+            width: 110px;
+        }
+    }
+
+
 }
 
 .bill {
@@ -39,8 +58,9 @@
         border-bottom: 1px solid $color-green-light-1;
     }
 
-    &__price,&__shipping {
-        display:flex;
+    &__price,
+    &__shipping {
+        display: flex;
         justify-content: space-between;
         padding: 10px 15px;
         letter-spacing: 2px;
@@ -48,14 +68,15 @@
     }
 
     &__total {
-        display:flex;
+        display: flex;
         justify-content: space-between;
         padding: 10px 15px;
         letter-spacing: 2px;
         font-size: 25px;
         font-weight: bold;
     }
-    &__pay{
+
+    &__pay {
         text-align: center;
         background-color: $color-yellow-light;
         color: $color-primary;
