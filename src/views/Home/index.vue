@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    <img src="@/assets/image/sm-為什麼選擇了做甜點.png" alt="whydo" class="mobile__pic">
     <div class="section-choose">
       <div class="whychoose">
         <div class="whychoose__img whychoose__img-1"></div>
@@ -34,14 +35,16 @@
         </div>
       </div>
     </div>
+    <img src="@/assets/image/sm-為什麼一定要吃甜點.png" alt="whyeat" class="mobile__pic">
+
     <div class="section-choose">
-      <div class="whychoose">
+      <div class="whychoose col-reserve">
         <div class="whychoose__reason">
           <p class="whychoose__reason-1">是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。</p>
           <p
             class="whychoose__reason-2"
           >青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。</p>
-          <img src="@/assets/image/lg-為什麼選擇了做甜點.png" alt="whyimg" class="whychoose__whyimg">
+          <img src="@/assets/image/lg-為什麼一定要吃甜點.png" alt="whyimg" class="whychoose__whyimg">
         </div>
         <div class="whychoose__img whychoose__img-2"></div>
       </div>
@@ -112,6 +115,12 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped>
+@media (max-width: 600px) {
+  .col-reserve {
+    flex-direction: column-reverse;
+  }
+}
 </style>
+
 
