@@ -22,10 +22,26 @@
         </li>
       </ul>
     </div>
-    <div class="mobile-nav"></div>
+    <div class="mobile-nav">
+      <div class="mobile-nav__hamberger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <a class="mobile-nav__logo" href="#/">
+        <img src="@/assets/image/logo-all-dark.png" alt="logo" class="mobile-nav__logo-img">
+      </a>
+      <div class="mobile-nav__cart">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-
+import $ from "jquery";
+export default {};
+$(document).ready(function() {
+  $(".navigation").click(function() {
+    alert("1234");
+  });
+});
 </script>
 

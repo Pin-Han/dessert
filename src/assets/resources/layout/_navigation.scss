@@ -7,22 +7,23 @@
     justify-content: space-between;
 
     @include respond(phone) {
-        height: 80px;
+        //手機版顯示時 把導覽列隱藏
+        display: none;
     }
 
     &__logo {
 
+
         &-img {
             width: 250px;
 
-            @include respond(phone) {
-                width: 150px;
-            }
         }
     }
 
     &__item {
         list-style: none;
+
+
 
         &-menu {
             list-style: none;
@@ -40,6 +41,30 @@
                 &:hover {
                     border-bottom: 2px solid $color-primary;
                 }
+            }
+        }
+    }
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@include respond(phone) {
+
+    .mobile-nav {
+        padding: 18px 30px;
+        display: flex;
+        justify-content: space-between;
+        height: 65px;
+        align-items: center;
+
+        &__hamberger {}
+
+        &__logo {
+            &-img {
+                width: 150px;
+
             }
         }
     }

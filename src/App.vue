@@ -10,7 +10,4 @@
 
 @import "./assets/main";
 </style>
-<script>
-import $ from "jquery";
 
-</script>
