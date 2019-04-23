@@ -55,6 +55,7 @@
   </div>
 </template>
 <script>
+
 import Pagination from "@/components/Pagination";
 
 export default {
