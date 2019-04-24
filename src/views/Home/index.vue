@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <img src="@/assets/image/sm-為什麼選擇了做甜點.png" alt="whydo" class="mobile__pic">
+    <img src="@/assets/image/sm-為什麼選擇了做甜點.png" alt="whydo" class="mobile__pic mobile-translate-y-medium">
     <div class="section-choose">
       <div class="whychoose">
         <div class="whychoose__img whychoose__img-1"></div>

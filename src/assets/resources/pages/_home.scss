@@ -162,7 +162,7 @@
             padding: 10px 20px;
             flex-direction: column;
             height: auto;
-            
+
 
         }
     }
@@ -189,14 +189,15 @@
     background-position: center;
     background-repeat: no-repeat;
     margin: 120px auto;
-    @include respond (phone){
+
+    @include respond (phone) {
         background-image: url('assets/image/sm-想吃甜點是不需要理由的-1.png');
         width: 100%;
         height: 160px;
         margin: 10px 0;
     }
 }
-
+//首頁中間圖檔
 .mobile__pic {
     display: none;
 

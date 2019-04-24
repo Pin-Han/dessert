@@ -30,8 +30,28 @@
         <img src="@/assets/image/logo-all-dark.png" alt="logo" class="mobile-nav__logo-img">
       </a>
       <div class="mobile-nav__cart">
-        <i class="fas fa-shopping-cart"></i>
+        <router-link to="/Cart">
+          <i class="fas fa-shopping-cart"></i>
+        </router-link>
       </div>
+    </div>
+    <div class="mobile-menu">
+      <ul class="mobile-menu__item">
+        <li class="mobile-menu__item-menu">
+          <router-link to="/">Home</router-link>
+        </li>
+        <li class="mobile-menu__item-menu">
+          <router-link to="/dessert">Dessert</router-link>
+        </li>
+        <li class="mobile-menu__item-menu">
+          <router-link to="/Login">Login</router-link>
+        </li>
+        <!-- <li class="mobile-menu__item-menu">
+          <router-link to="/Cart">
+            <i class="fas fa-shopping-cart"></i>
+          </router-link>
+        </li>-->
+      </ul>
     </div>
   </div>
 </template>
@@ -39,8 +59,13 @@
 import $ from "jquery";
 export default {};
 $(document).ready(function() {
-  $(".navigation").click(function() {
-    alert("1234");
+  $(".mobile-nav__hamberger").click(function() {
+    $(".mobile-menu").slideToggle("normal");
+    document.querySelector(".mobile-menu").style.display = "block";
+  });
+  $(".mobile-menu__item-menu").click(function() {
+    $(".mobile-menu").slideToggle("normal");
+    document.querySelector(".mobile-menu").style.display = "none";
   });
 });
 </script>

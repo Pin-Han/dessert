@@ -1,0 +1,6 @@
+.mobile-translate-y-medium {
+    @include respond(phone) {
+        transform: translateY(-52px);
+
+    }
+}

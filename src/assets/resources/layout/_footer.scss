@@ -1,7 +1,9 @@
 .footer {
     margin-top: 40px;
     background-color: $color-green-light-1;
-
+@include respond(phone){
+    margin-top: 0;
+}
 }
 
 .book {
@@ -85,6 +87,7 @@
             padding: 6px 20px;
             line-height: 56px;
             background-color: $color-yellow-light;
+            margin: 0;
 
             i {
                 font-size: 24px;

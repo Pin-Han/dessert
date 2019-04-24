@@ -5,6 +5,12 @@
     display: flex;
     justify-content: space-around;
     margin: 80px auto;
+
+    @include respond(phone) {
+        flex-direction: column;
+        height: auto;
+        margin: 0;
+    }
 }
 
 .login {
@@ -18,11 +24,18 @@
     transform: translateY(-50%);
     justify-content: space-between;
 
+    @include respond(phone) {
+        flex: none;
+        justify-content: space-around;
+        height: auto;
+        transform: translateY(0);
+    }
+
     &__title {
         text-align: center;
         color: white;
         font-size: 40px;
-        margin: 30px 0;
+        padding-top: 10px;
     }
 
     &__input {
@@ -34,7 +47,9 @@
         width: 300px;
         text-align: center;
         background-color: $color-white;
-
+@include respond(phone){
+margin-top: 20px;
+}
         &-icon {
             color: $color-primary;
             background-color: $color-white;
@@ -49,6 +64,10 @@
         }
     }
 
+    &__remember {
+        margin-top: 20px;
+    }
+
     &__btn {
         background-color: $color-yellow-light;
         color: $color-primary;
@@ -59,6 +78,10 @@
         font-weight: bold;
         text-align: center;
     }
+}
+
+.mobile-social {
+    display: none;
 }
 
 .social {
@@ -92,9 +115,34 @@
             opacity: .6;
 
         }
-        &:hover >img{
+
+        &:hover>img {
             filter: grayscale(0);
             opacity: 1;
+        }
+    }
+
+    @include respond(phone) {
+        display: none;
+        // flex: none;
+        // height: 500px;
+    }
+
+    ;
+}
+
+@include respond(phone) {
+    .mobile-social {
+        background-color: $color-green-light-1;
+        display: flex;
+        justify-content: center;
+
+        padding: 30px 0;
+        align-items: center;
+
+        img {
+            width: 150px;
+            margin: 0 10px;
         }
     }
 }

@@ -10,11 +10,12 @@
 
 
 @import "./resources/base/base";
+@import "./resources/base/utilities";
 @import "./resources/base/typography";
 
 
 @import "./resources/component/product";
-
+@import "./resources/component/pagination";
 
 @import "./resources/layout/navigation";
 @import "./resources/layout/footer";

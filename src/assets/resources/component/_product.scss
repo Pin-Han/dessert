@@ -82,6 +82,8 @@
         &:hover {
             background-color: $color-primary;
             color: $color-white;
+            text-decoration: none;
+
         }
     }
 }
@@ -90,4 +92,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    @include respond(phone){
+        justify-content: flex-start;
+    }
 }

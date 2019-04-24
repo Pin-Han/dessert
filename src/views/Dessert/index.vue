@@ -48,10 +48,11 @@
               <a href="#" class="product__cart">加入購物車</a>
             </div>
           </div>
+              <Pagination/>
+
         </div>
       </div>
     </div>
-    <Pagination/>
   </div>
 </template>
 <script>

@@ -19,28 +19,6 @@
         padding: 15px 0;
         font-size: 30px;
     }
-
-    &__info {
-        tr {
-            height: 110px;
-
-            td {
-                padding: 0 10px;
-            }
-        }
-    }
-
-    &__name {
-        padding: 15px 0;
-    }
-
-    &__img {
-        img {
-            width: 110px;
-        }
-    }
-
-
 }
 
 .bill {
@@ -83,4 +61,25 @@
         padding: 15px;
         font-size: 25px;
     }
+}
+
+.cart {
+    display: flex;
+    justify-content: space-around;
+
+    &__img {
+        width: 110px;
+        height: 110px;
+    }
+
+    &__name {
+        color: $color-primary;
+    }
+
+    &__num {}
+
+    &__price {}
+
+    &__trash {}
+
 }

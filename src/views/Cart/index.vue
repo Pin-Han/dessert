@@ -3,27 +3,35 @@
     <div class="section-cart">
       <div class="shopping">
         <div class="shopping__title">您的購物車</div>
-        <table class="shopping__info">
-          <tbody>
-            <tr>
-              <td class="shopping__img">
-                <img src="@/assets/image/item1.jpg" alt="item1">
-              </td>
-              <td class="shopping__name">
-                <p>焦糖馬卡龍</p>
-                <p>NT$450</p>
-              </td>
-              <td class="shopping__select">
-              </td>
-              <td class="shopping__price">
-                <p>NT$900</p>
-              </td>
-              <td class="shopping__trash">
-                <i class="fas fa-trash-alt"></i>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="cart">
+          <img src="@/assets/image/item1.jpg" alt="item1" class="cart__img">
+          <div class="cart__name">
+            <p>焦糖馬卡龍</p>
+            <p>NT$450</p>
+          </div>
+          <div class="cart__num">
+            <span class="fas fa-plus"></span>
+            <input type="number">
+            <span class="fas fa-minus"></span>
+          </div>
+          <div class="cart__price">NT$900</div>
+          <div class="cart__trash">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+        </div>
+        <div class="cart">
+          <img src="@/assets/image/item1.jpg" alt="item1" class="cart__img">
+          <div class="cart__name"></div>
+          <div class="cart__num">
+            <span class="fas fa-plus"></span>
+            <input type="number">
+            <span class="fas fa-minus"></span>
+          </div>
+          <div class="cart__price">NT$900</div>
+          <div class="cart__trash">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+        </div>
       </div>
       <div class="bill">
         <div class="bill__title">訂單摘要</div>
