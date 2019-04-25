@@ -14,3 +14,5 @@ const store = new Vuex.Store({
 });
 
 export default store;
+//store -> index.js為彙整所有vuex行為的地方
+//export default store ，要再去main.js import

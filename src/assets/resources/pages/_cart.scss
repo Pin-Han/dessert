@@ -2,6 +2,11 @@
     @include settingcenter;
     margin: 20px auto 60px auto;
     display: flex;
+
+    @include respond(phone) {
+        flex-direction: column;
+        margin: 0 auto;
+    }
 }
 
 .shopping {
@@ -10,6 +15,10 @@
     font-size: 20px;
     color: $color-primary;
     text-align: center;
+
+    @include respond(phone) {
+        margin-right: 0px;
+    }
 
     &__title {
         color: $color-primary;
@@ -26,6 +35,11 @@
     background-color: $color-primary;
     color: $color-white;
 
+    @include respond(phone) {
+        background-color: $color-white;
+        color: $color-primary;
+    }
+
     &__title {
         text-align: center;
         font-size: 30px;
@@ -34,15 +48,25 @@
         margin: 15px auto;
         width: 80%;
         border-bottom: 1px solid $color-green-light-1;
+
+        @include respond(phone) {
+            background-color: $color-green-light-1;
+            padding: 5px 0;
+        }
     }
 
     &__price,
     &__shipping {
         display: flex;
         justify-content: space-between;
-        padding: 10px 15px;
+        padding: 5px 15px;
         letter-spacing: 2px;
         font-size: 20px;
+
+        @include respond(phone) {
+            padding: 5px 30px;
+            font-size: 18px;
+        }
     }
 
     &__total {
@@ -52,13 +76,18 @@
         letter-spacing: 2px;
         font-size: 25px;
         font-weight: bold;
+
+        @include respond(phone) {
+            padding: 5px 30px;
+            font-size: 20px;
+        }
     }
 
     &__pay {
         text-align: center;
         background-color: $color-yellow-light;
         color: $color-primary;
-        padding: 15px;
+        padding: 10px;
         font-size: 25px;
     }
 }
@@ -66,20 +95,96 @@
 .cart {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include respond(phone) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding-left: 10px;
+        position: relative;
+    }
 
     &__img {
         width: 110px;
         height: 110px;
+
+        @include respond(phone) {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 5px;
+        }
     }
 
     &__name {
         color: $color-primary;
+
+        @include respond(phone) {
+            position: absolute;
+            top: 10px;
+            left: 180px;
+            p{
+                margin-bottom: 5px;
+            }
+        }
     }
 
-    &__num {}
+    &__num {
+        display: flex;
+        align-items: center;
 
-    &__price {}
+        @include respond(phone) {
+            position: absolute;
+            left: 180px;
+            top: 90px;
+        }
 
-    &__trash {}
+        &-icon,
+        &-input {
+            border: 1px solid $color-green-light-1;
+            line-height: 50px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+        }
+
+        &-icon {
+            cursor: pointer;
+            font-size: 7px;
+
+            &:hover {
+                font-size: 15px;
+            }
+        }
+
+        &-input {
+            margin: 0 10px;
+        }
+    }
+
+    &__price {
+        @include respond(phone) {
+            width: 100%;
+            display: block;
+            border-bottom: 1px solid $color-green-light-1;
+            border-top: 1px solid $color-green-light-1;
+            text-align: right;
+            padding: 10px;
+        }
+    }
+
+    &__trash {
+        transition: all .2s;
+
+        &:hover {
+            color: $color-orange;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        @include respond(phone) {
+            display: none;
+        }
+    }
 
 }

@@ -10,9 +10,10 @@
             <p>NT$450</p>
           </div>
           <div class="cart__num">
-            <span class="fas fa-plus"></span>
-            <input type="number">
-            <span class="fas fa-minus"></span>
+            <span class="fas fa-minus cart__num-icon"></span>
+            <input type="tel" class="cart__num-input">
+            <span class="fas fa-plus cart__num-icon"></span>
+
           </div>
           <div class="cart__price">NT$900</div>
           <div class="cart__trash">
@@ -21,11 +22,14 @@
         </div>
         <div class="cart">
           <img src="@/assets/image/item1.jpg" alt="item1" class="cart__img">
-          <div class="cart__name"></div>
+          <div class="cart__name">
+            <p>焦糖馬卡龍</p>
+            <p>NT$450</p>
+          </div>
           <div class="cart__num">
-            <span class="fas fa-plus"></span>
-            <input type="number">
-            <span class="fas fa-minus"></span>
+            <span class="fas fa-minus cart__num-icon"></span>
+            <input type="tel" class="cart__num-input">
+            <span class="fas fa-plus cart__num-icon"></span>
           </div>
           <div class="cart__price">NT$900</div>
           <div class="cart__trash">

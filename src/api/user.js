@@ -1,13 +1,13 @@
 import request from '@/utils/request';
 
-export function login(email, password) {
+export function login(username, password) {
   return request({
-    url: '/user/login',
+    url: '/admin/signin',
     method: 'post',
     data: {
-      email,
-      password,
-    },
+      username,
+      password
+    }
   });
 }
 
@@ -15,13 +15,20 @@ export function getInfo() {
   return request({
     url: '/user/getinfo',
     method: 'get',
-    // params: { token }
+    // params: { token }
   });
 }
 
 export function logout() {
   return request({
-    url: '/user/logout',
+    url: '/logout',
     method: 'post'
+  });
+}
+
+export function check() {
+  return request({
+    url: '/api/user/check',
+    method: 'post',
   });
 }

@@ -1,3 +1,5 @@
+//程式運作的狀態 ex=> loading , 紀錄原先資料
+
 import Cookies from 'js-cookie';
 
 const app = {
