@@ -30,7 +30,8 @@
 
         &-img {
 
-            width: inherit;
+            max-width: 300px;
+            min-width: 300px;
             height: inherit;
             transition: all .3s;
 

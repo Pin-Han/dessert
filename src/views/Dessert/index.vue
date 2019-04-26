@@ -14,54 +14,44 @@
         </div>
         <div class="dessert__product">
           <div class="products">
-            <div class="product">
+            <div class="product" v-for="item in products" :key="item">
               <div class="product__box">
-                <img src="@/assets/image/item1.jpg" alt="product" class="product__box-img">
+                <img :src="item.image" alt="product" class="product__box-img">
                 <p class="product__box-text">本日精選</p>
               </div>
               <div class="product__info">
-                <div class="product__info-title">焦糖瑪卡龍</div>
-                <div class="product__info-price">NT$450</div>
-              </div>
-              <a href="#" class="product__cart">加入購物車</a>
-            </div>
-            <div class="product">
-              <div class="product__box">
-                <img src="@/assets/image/item1.jpg" alt="product" class="product__box-img">
-                <p class="product__box-text">本日精選</p>
-              </div>
-              <div class="product__info">
-                <div class="product__info-title">焦糖瑪卡龍</div>
-                <div class="product__info-price">NT$450</div>
-              </div>
-              <a href="#" class="product__cart">加入購物車</a>
-            </div>
-            <div class="product">
-              <div class="product__box">
-                <img src="@/assets/image/item1.jpg" alt="product" class="product__box-img">
-                <p class="product__box-text">本日精選</p>
-              </div>
-              <div class="product__info">
-                <div class="product__info-title">焦糖瑪卡龍</div>
-                <div class="product__info-price">NT$450</div>
+                <div class="product__info-title">{{item.title}}</div>
+                <div class="product__info-price">NT$ {{item.price}}</div>
               </div>
               <a href="#" class="product__cart">加入購物車</a>
             </div>
           </div>
-              <Pagination/>
-
+          <Pagination/>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-
 import Pagination from "@/components/Pagination";
-
+import { getproduct } from "@/api/product";
 export default {
+  data() {
+    return {
+      products: []
+    };
+  },
   components: {
     Pagination
+  },
+  created() {
+    //抓取產品訊息
+    getproduct().then(response => {
+      console.log(response);
+      const vm = this;
+      vm.products = response.products;
+      console.log("顯示產品", products);
+    });
   }
 };
 </script>

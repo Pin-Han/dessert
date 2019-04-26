@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
+    //引入 user
     app,
     user,
   },

@@ -54,7 +54,9 @@
   </div>
 </template>
 <script>
+import {getproduct} from '@/api/product';
 export default {
+
   data() {
     return {
       user: {
@@ -87,6 +89,7 @@ export default {
           this.loading = false;
         });
     }
-  }
+  },
+
 };
 </script>

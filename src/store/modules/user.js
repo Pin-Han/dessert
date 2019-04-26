@@ -11,6 +11,8 @@ const user = {
 
   mutations: {
     // 名字
+
+    //這裡的name是由 actions 裡的data 傳入過來
     SET_NAME: (state, name) => {
       state.name = name;
     }
@@ -18,9 +20,8 @@ const user = {
 
   actions: {
     // 登入
-    Login({
-      commit
-    }, data) {
+    //data 為外部傳入進來的參數
+    Login({commit}, data) {
       return new Promise((resolve, reject) => {
         login(data.username, data.password).then(response => {
           const data = response.data;

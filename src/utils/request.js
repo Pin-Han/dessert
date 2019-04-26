@@ -5,6 +5,7 @@ import axios from 'axios';
 // 創建axios實例
 const service = axios.create({
   baseURL: process.env.VUE_APP_API, // api 的 base_url
+  //這邊已經預設api路徑
   timeout: 5000, // 請求超時時間
 });
 //讓api設定cookies
