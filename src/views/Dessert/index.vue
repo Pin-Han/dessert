@@ -14,16 +14,16 @@
         </div>
         <div class="dessert__product">
           <div class="products">
-            <div class="product" v-for="item in products" :key="item">
+            <div class="product" v-for="item in products" :key="item" >
               <div class="product__box">
-                <img :src="item.image" alt="product" class="product__box-img">
+                <img :src="item.image" alt="product" class="product__box-img border-two">
                 <p class="product__box-text">本日精選</p>
               </div>
               <div class="product__info">
                 <div class="product__info-title">{{item.title}}</div>
                 <div class="product__info-price">NT$ {{item.price}}</div>
               </div>
-              <a href="#" class="product__cart">加入購物車</a>
+              <a href="#" class="product__cart border-two">加入購物車</a>
             </div>
           </div>
           <Pagination/>
@@ -50,7 +50,7 @@ export default {
       console.log(response);
       const vm = this;
       vm.products = response.products;
-      console.log("顯示產品", products);
+      console.log("顯示產品", vm.products);
     });
   }
 };

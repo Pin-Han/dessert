@@ -69,7 +69,6 @@ export default {
     signin() {
       const api = `${process.env.APIPATH}/signin`;
       const vm = this;
-      this.loading = true;
       let data = {
         username: vm.user.email,
         password: vm.user.password
@@ -79,11 +78,10 @@ export default {
       this.$store
         .dispatch("Login", data)
         .then(res => {
-          this.loading = false;
-          console.log(res);
-          if (res.data.success) {
-            vm.$router.push("/admin/products");
-          }
+          console.log('回傳登入',res);
+          // if (res.data.success) {
+          //   vm.$router.push("/admin/products");
+          // }
         })
         .catch(() => {
           this.loading = false;

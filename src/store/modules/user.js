@@ -9,6 +9,7 @@ const user = {
     name: '',
   },
 
+  //mutations 為更改狀態
   mutations: {
     // 名字
 
@@ -25,8 +26,11 @@ const user = {
       return new Promise((resolve, reject) => {
         login(data.username, data.password).then(response => {
           const data = response.data;
-          console.log(response);
-          commit('SET_NAME', data.name)
+          console.log('登入資訊',response);
+          console.log('123');
+
+          commit('SET_NAME', data.name);
+
           resolve(response);
         }).catch(error => {
           reject(error);
