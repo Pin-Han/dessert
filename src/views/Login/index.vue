@@ -33,6 +33,7 @@
         <div class="login__remember">
           <input type="checkbox" name id>
           <p>記住我</p>
+          
         </div>
         <div class="login__btn" @click="signin()">登入</div>
       </div>

@@ -27,7 +27,7 @@ const user = {
         login(data.username, data.password).then(response => {
           const data = response.data;
           console.log('登入資訊',response);
-          console.log('123');
+          console.log();
 
           commit('SET_NAME', data.name);
 
