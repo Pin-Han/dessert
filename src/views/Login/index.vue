@@ -80,11 +80,16 @@ export default {
         .dispatch("Login", data)
         .then(res => {
           console.log('回傳登入',res);
+          if(res.success){
+            alert("登入成功");
+            vm.$router.push('/dessert');
+          }
           // if (res.data.success) {
           //   vm.$router.push("/admin/products");
           // }
         })
         .catch(() => {
+          //問題
           this.loading = false;
         });
     }

@@ -15,6 +15,11 @@ export const constantRouterMap = [
   // }
   // ,
   {
+    path: '*',
+    redirect: '/'
+
+  },
+  {
     path: '/',
     component: Layout,
     //使所有頁面上下不變，只改動中間畫面(children)
@@ -33,14 +38,14 @@ export const constantRouterMap = [
       path: '/dessert',
       component: () => import( /* webpackChunkName: "about" */ '../views/Dessert'),
       name: 'Dessert',
-    },{
-      path:'/login',
-      component:()=>import ('../views/Login'),
-      name:'Login',
-    },{
-      path:'/Cart',
-      component:()=>import ('../views/Cart'),
-      name:'Cart',
+    }, {
+      path: '/login',
+      component: () => import('../views/Login'),
+      name: 'Login',
+    }, {
+      path: '/Cart',
+      component: () => import('../views/Cart'),
+      name: 'Cart',
     }]
   },
 

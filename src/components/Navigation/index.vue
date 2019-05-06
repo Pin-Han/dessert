@@ -13,7 +13,7 @@
           <router-link to="/dessert">Dessert</router-link>
         </li>
         <li class="navigation__item-menu">
-          <router-link to="/Login">Login</router-link>
+          <router-link to="/login">Login</router-link>
         </li>
         <li class="navigation__item-menu">
           <router-link to="/Cart">
@@ -57,7 +57,17 @@
 </template>
 <script>
 import $ from "jquery";
-export default {};
+import {mapGetters} from 'vuex';
+export default {
+  data() {
+    return {
+      auth: "登入"
+    };
+  },
+computed:{
+  ...mapGetters([check_login]),//不知道為什麼壞掉
+}
+};
 $(document).ready(function() {
   $(".mobile-nav__hamberger").click(function() {
     $(".mobile-menu").slideToggle("normal");
@@ -69,4 +79,9 @@ $(document).ready(function() {
   });
 });
 </script>
+<style scoped>
+.hide {
+  display: none;
+}
+</style>
 

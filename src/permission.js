@@ -3,12 +3,14 @@ import NProgress from 'nprogress'; // progress bar
 import router from './router';
 import store from './store';
 import { getToken } from '@/utils/auth'; // 驗證
+import { check } from "@/api/user";
 import 'nprogress/nprogress.css';// progress bar style
 
 NProgress.configure({ showSpinner: false });// NProgress configuration
 const whiteList = ['/login'];// no redirect whitelist
 
 router.beforeEach((to, from, next) => {
+  
   NProgress.start(); // start progress bar
   next();
   // if (getToken()) { // 判斷是否有Token

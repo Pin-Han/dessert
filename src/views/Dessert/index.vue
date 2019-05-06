@@ -14,7 +14,7 @@
         </div>
         <div class="dessert__product">
           <div class="products">
-            <div class="product" v-for="item in products" :key="item" >
+            <div class="product" v-for="item in products">
               <div class="product__box">
                 <img :src="item.image" alt="product" class="product__box-img border-two">
                 <p class="product__box-text">本日精選</p>

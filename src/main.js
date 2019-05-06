@@ -6,7 +6,7 @@ import 'bootstrap';
 Vue.config.productionTip = true;
 
 
-// import '@/permission';
+import '@/permission';
 
 new Vue({
   router,
