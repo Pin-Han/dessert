@@ -13,7 +13,7 @@
           <router-link to="/dessert">Dessert</router-link>
         </li>
         <li class="navigation__item-menu">
-          <router-link to="/login">Login</router-link>
+          <a href="#" @click="login(check_login)">{{check_login | status }}</a>
         </li>
         <li class="navigation__item-menu">
           <router-link to="/Cart">
@@ -57,17 +57,46 @@
 </template>
 <script>
 import $ from "jquery";
-import {mapGetters} from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      auth: "登入"
+      
     };
   },
-computed:{
-  ...mapGetters([check_login]),//不知道為什麼壞掉
-}
+  methods: {
+    //登入，要判斷是否是登入還登出
+    login(data) {
+      console.log(data);
+      if(data===false){
+        this.$router.push('/login');
+      }else{
+        this.$store.dispatch("LogOut",data).then(response=>{
+          if(response.success === true){
+            alert("已成功登出");
+            this.$store.dispatch('Check');
+          }
+        });
+      }
+    }
+  },
+  computed: {
+    //確認是否登入
+    ...mapGetters(["check_login"]),
+    ...mapActions(["Login"])
+  },
+  filters: {
+    status: function(value) {
+      if (value === false) {
+        return "登入";
+      } else if (value === true) {
+        return "登出";
+      }
+    }
+  }
 };
+
+//手機板 導覽列展開
 $(document).ready(function() {
   $(".mobile-nav__hamberger").click(function() {
     $(".mobile-menu").slideToggle("normal");
@@ -80,8 +109,5 @@ $(document).ready(function() {
 });
 </script>
 <style scoped>
-.hide {
-  display: none;
-}
 </style>
 

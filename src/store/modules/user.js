@@ -7,7 +7,7 @@ import {
 const user = {
   state: {
     name: '',
-    check: "false"
+    check: false
   },
 
   //mutations 為更改狀態
@@ -33,9 +33,8 @@ const user = {
         login(data.username, data.password).then(response => {
           //const data = response.data;
           console.log('登入資訊', response, data);
-          commit('SET_NAME', data.name); //呼叫mutation 
+          //commit('SET_NAME', data.name); //呼叫mutation 
           commit('Check_Login', response.success);
-          console.log("查看",response.success);
           resolve(response);
         }).catch(error => {
           reject(error);
@@ -97,10 +96,6 @@ const user = {
       });
     }
 
-  },getters:{
-    check_login(state){
-      return state.check;
-    }
   }
 };
 

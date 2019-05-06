@@ -5,6 +5,9 @@ import Layout from '@/views/Layout';
 import Dessert from '@/views/Dessert';
 import Login from '@/views/Login';
 import Cart from '@/views/Cart';
+import Dashboard from '@/components/Dashboard';
+import ToDashboard from '@/components/ToDashboard';
+
 Vue.use(Router);
 
 export const constantRouterMap = [
@@ -18,6 +21,11 @@ export const constantRouterMap = [
     path: '*',
     redirect: '/'
 
+  },
+  {
+    path: '/admin',
+    component: ToDashboard,
+    name: 'ToDashboard'
   },
   {
     path: '/',
@@ -46,6 +54,9 @@ export const constantRouterMap = [
       path: '/Cart',
       component: () => import('../views/Cart'),
       name: 'Cart',
+      meta: {
+        requiresAuth: true
+      },
     }]
   },
 
