@@ -1,11 +1,12 @@
-.section-admin{
-    background-image: linear-gradient(to right bottom,$color-scss-green,$color-scss-main);
+.section-admin {
+    background-image: linear-gradient(to right bottom, $color-scss-green, $color-scss-main);
     height: 100vh;
     width: 100vw;
     position: relative;
 
 }
-.admin{
+
+.admin {
     padding: 30px;
     position: absolute;
     width: 400px;
@@ -13,22 +14,85 @@
     background-color: $color-white;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
-    &__title{
+
+    &__title {
         text-align: center;
         font-size: 28px;
         font-weight: bold;
-    }&__text{
+    }
+    &__input {
+        &-icon{
+            font-size: 20px;
+            color: $color-scss-green;
+
+        }
+        &-content {
+            margin-left: 10px;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid $color-green-light-1;
+            width: 80%;
+            font-size: 15px;
+            transition: all .4s;
+            &:focus{
+                border-bottom:  2px solid $color-scss-green;
+                outline: none;
+            }
+            &:focus:invalid {
+                //當fouce input 如果無效時 產生下底線為橘色
+                border-bottom: 2px solid $color-orangered;
+    
+            }
+        }
 
     }
-    &__icon{
+
+    &__login {
+        background-color: $color-scss-main;
+        color: $color-white;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 18px;
+        transition: all .2s;
+        width: 80%;
+        margin: 0 auto;
+
+        &:hover {
+            transform: translateY(-3px);
+            outline: none;
+            box-shadow: 0 5px 5px rgba($color-black, $alpha: 0.2);
+            color: $color-white;
+            text-decoration: none;
+        }
+        &:active,&:focus{
+            transform: translateY(-1px);
+        }
 
     }
-    &__input{
-
+    &__back{
+        font-size: 18px;
+        text-decoration: none;
+        border-bottom: 1px solid $color-scss-green;
+        padding: 3px;
+        transition: all .2s;
+        color: $color-scss-green;
+        width: 85px;
+        font-weight: 200;
+        &:hover{
+            background-color: $color-scss-green;
+            color: $color-white;
+            box-shadow: 0 2px 5px rgba($color-black, $alpha: 0.15);
+            transform: translateY(-2px);
+            border-radius: 2px;
+            text-decoration: none;
+        }
     }
 }
