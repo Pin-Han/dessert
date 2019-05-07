@@ -1,9 +1,34 @@
-.admin{
-    //background-image: url('assets/image/backend.jpg');
+.section-admin{
     background-image: linear-gradient(to right bottom,$color-scss-green,$color-scss-main);
     height: 100vh;
-    // background-size: cover;
     width: 100vw;
-    // background-position: bottom;
+    position: relative;
 
+}
+.admin{
+    padding: 30px;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background-color: $color-white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    &__title{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }&__text{
+
+    }
+    &__icon{
+
+    }
+    &__input{
+
+    }
 }
