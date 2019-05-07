@@ -21,13 +21,30 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     console.log("需要驗證");
     store.dispatch("Check").then(response => {
-      console.log(response);
-      if(response.success){
-        next();
-      }else{
-        alert("請先登入");
-       next({path:'/login'});
+      console.log(response,to.name);
+
+      if (to.name == 'Dashboard') {
+        if(response.uid==='Bxx012Np5ebUtnLN8UlxWIWe6EA3'){
+          next();
+        }
+        else{
+          console.log("這裡");
+          alert("錯誤");
+          next({
+            path: '/'
+          });
+        }
+      } else {
+        if (response.success) {
+          next();
+        } else {
+          alert("請先登入");
+          next({
+            path: '/login'
+          });
+        }
       }
+
     })
   } else {
     next();

@@ -28,6 +28,15 @@ export const constantRouterMap = [
     name: 'ToDashboard'
   },
   {
+    path: '/dashboard',
+    component: Dashboard,
+    name: 'Dashboard',
+    meta: {
+      requiresAuth: true
+    },
+
+  },
+  {
     path: '/',
     component: Layout,
     //使所有頁面上下不變，只改動中間畫面(children)

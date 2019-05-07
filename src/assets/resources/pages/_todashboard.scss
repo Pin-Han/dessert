@@ -23,6 +23,11 @@
         text-align: center;
         font-size: 28px;
         font-weight: bold;
+        letter-spacing: 2px;
+        background-clip: text;
+        background-image: linear-gradient(to right, $color-scss-green, $color-scss-main);
+        color: transparent;
+
     }
     &__input {
         &-icon{
@@ -38,6 +43,7 @@
             width: 80%;
             font-size: 15px;
             transition: all .4s;
+            color: #888;
             &:focus{
                 border-bottom:  2px solid $color-scss-green;
                 outline: none;
