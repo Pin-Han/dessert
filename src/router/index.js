@@ -5,7 +5,7 @@ import Layout from '@/views/Layout';
 import Dessert from '@/views/Dessert';
 import Login from '@/views/Login';
 import Cart from '@/views/Cart';
-import Dashboard from '@/components/Dashboard';
+import Dashboard from '@/views/Dashboard';
 import ToDashboard from '@/components/ToDashboard';
 
 Vue.use(Router);
@@ -32,7 +32,7 @@ export const constantRouterMap = [
     component: Dashboard,
     name: 'Dashboard',
     meta: {
-      requiresAuth: true
+      //requiresAuth: true//<=先拉掉
     },
 
   },
