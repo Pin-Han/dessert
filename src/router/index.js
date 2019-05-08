@@ -7,6 +7,7 @@ import Login from '@/views/Login';
 import Cart from '@/views/Cart';
 import Dashboard from '@/views/Dashboard';
 import ToDashboard from '@/components/ToDashboard';
+import DashProduct from '@/views/DashProduct';
 
 Vue.use(Router);
 
@@ -34,6 +35,11 @@ export const constantRouterMap = [
     meta: {
       //requiresAuth: true//<=先拉掉
     },
+    children:[{
+      path: '/dashboard/Product',
+      component: DashProduct,
+      name: 'Dashboard',
+    }]
 
   },
   {
