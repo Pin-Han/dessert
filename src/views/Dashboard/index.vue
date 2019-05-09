@@ -3,14 +3,15 @@
     <DashNav/>
 
     <DashMenu/>
-<div class="dash__main">
-    <p>123</p>
-</div>
-    <transition name="fade-transform" mode="out-in">
-      <!-- or name="fade" -->
-      <!-- <router-view :key="key"></router-view> -->
-      <router-view class="bg-purple"></router-view>
-    </transition>
+    <div class="dash">
+      <div class="dash__main">
+        <transition name="fade" mode="out-in">
+          <!-- or name="fade" -->
+          <!-- <router-view :key="key"></router-view> -->
+          <router-view class="bg-purple"></router-view>
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -22,8 +23,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.bg-purple{
-    background-color: #F2f3f8;
+.bg-purple {
+  background-color: #f2f3f8;
 }
 </style>
 

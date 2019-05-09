@@ -1,5 +1,16 @@
-.dash__main{
-    background-color: black;
-    width: 200px;
-    height: 200px;
+.dash {
+
+    position: relative;
+
+    &__main {
+        position: absolute;
+        top: 50px;
+        left: $dash-menu;
+        width: calc(100vw - #{$dash-menu} );
+        background-color: $color-purple-shallow;
+        height: calc(100vh - 50px);
+        padding:15px;
+
+    }
+
 }

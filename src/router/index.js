@@ -36,7 +36,7 @@ export const constantRouterMap = [
       //requiresAuth: true//<=先拉掉
     },
     children:[{
-      path: '/dashboard/Product',
+      path: 'Product',
       component: DashProduct,
       name: 'Dashboard',
     }]

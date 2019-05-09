@@ -1,6 +1,6 @@
 .dashmenu {
     position: fixed;
-    width: 275px;
+    width: $dash-menu;
     height: 100vh;
     background-color: $color-purple-dark-1;
     color: $color-purple-light;
@@ -16,6 +16,11 @@
             text-align: center;
             padding-top: 7px;
             color: $color-white;
+            cursor: pointer;
+            transition: all .2s;
+            &:hover{
+                color: $color-purple-light;
+            }
         }
     }
 
@@ -24,6 +29,8 @@
         font-size: 18px;
         cursor: pointer;
         transition: all .3s;
+text-decoration: none;
+color: $color-purple-light;
 
         &:first-child {
             margin-top: 20px;
@@ -41,7 +48,7 @@
 
     &__back {
         position: absolute;
-        width: 275px;
+        width: $dash-menu;
         top: calc(100vh - 45px);
         cursor: pointer;
         transition: all .3s;

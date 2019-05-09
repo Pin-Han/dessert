@@ -1,0 +1,29 @@
+.dashproduct{
+    &__create{
+        text-align: right;
+        background-color: $color-purple-blue;
+        color: $color-white;
+        padding: 7px 10px;
+        font-size: 20px;
+        border-radius: 3px;
+        transition: all 0s;
+
+        &:hover{
+            text-decoration: none;
+            background-color: $color-blue-light;
+            color: $color-white;
+            border-color: $color-blue-dark;
+        }
+    }
+    &__table{
+        font-size: 18px;
+        color: $color-black-light;
+    }
+    &__icon{
+        cursor: pointer;
+        transition: all .3s;
+        &:hover{
+            color: $color-blue-dark;
+        }
+    }
+}

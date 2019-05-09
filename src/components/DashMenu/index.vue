@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="dashmenu">
-      <div class="dashmenu__title">
+      <div class="dashmenu__title" @click="gohomedash()">
         <p class="dashmenu__title-text">後台管理</p>
       </div>
       <ul>
-        <li class="dashmenu__list">
+        <li class="dashmenu__list" @click="showproduct()">
           <i class="fas fa-box-open dashmenu__list-icon"></i> 產品列表
         </li>
         <li class="dashmenu__list">
@@ -17,10 +17,22 @@
       </ul>
       <router-link to="/" class="dashmenu__back dashmenu__list">
         <i class="fas fa-door-closed dashmenu__back-icon"></i>
-        <div class="dashmenu__back-text">
-            Back
-        </div>
+        <div class="dashmenu__back-text">Back</div>
       </router-link>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  },methods:{
+      gohomedash(){
+          this.$router.push('/dashboard');
+      },showproduct(){
+          this.$router.push('/dashboard/Product');
+      }
+  }
+};
+</script>
+
