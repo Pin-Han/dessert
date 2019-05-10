@@ -1,6 +1,6 @@
 <template>
   <div class="dashproduct">
-    <a href="#" class="dashproduct__create" @click.prevent="createModal()">建立產品</a>
+    <a href="#" class="dashproduct__create" @click.prevent="openModal(true)">建立產品</a>
     <table class="table mt-4 dashproduct__table">
       <thead>
         <tr>
@@ -25,27 +25,31 @@
           <td>${{item.origin_price}}</td>
           <td>${{item.price}}</td>
           <td>{{item.is_enabled}}</td>
-          <td>
+          <td @click.prevent="openModal(false,item.id)">
             <i class="far fa-edit dashproduct__icon"></i>
           </td>
         </tr>
       </tbody>
     </table>
-    <CreateProduct/>
+    <ProductModal :is-new="isNew" :product-id="tempid"></ProductModal> <!--傳遞 isNew的值給予modal -->
   </div>
 </template>
 <script>
 import { Dashproduct } from "@/api/admin";
-//匯入 modal 
-import CreateProduct from "@/components/CreateProduct";
+//匯入 modal
+import ProductModal from "@/components/ProductModal";
 import $ from "jquery";
 export default {
-  components: { CreateProduct },
+  components: { ProductModal },
   data() {
     return {
-      product: []
+      product: [],
+      isNew: false,
+      tempid:'',
     };
   },
+  //傳遞isNew true or false to ProductModal
+
   methods: {
     getproduct() {
       Dashproduct().then(response => {
@@ -54,8 +58,11 @@ export default {
         vm.product = response.products;
       });
     },
-    createModal() {
+    openModal(isNew, id) {
       //打開建立新產品的modal
+         this.isNew = isNew;
+         console.log(id);
+         this.tempid=id;
       $("#productModal").modal("show");
     }
   },

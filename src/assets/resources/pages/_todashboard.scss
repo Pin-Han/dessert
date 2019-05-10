@@ -1,11 +1,25 @@
 .section-admin {
-    background-image: linear-gradient(to right bottom, $color-scss-green, $color-scss-main);
+    // background-image: linear-gradient(to right bottom, $color-scss-green, $color-scss-main,);
     height: 100vh;
     width: 100vw;
     position: relative;
 
 }
+.bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: .7;
+    &__content{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
 
+    }
+}
 .admin {
     padding: 30px;
     position: absolute;
@@ -18,6 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    opacity: .85;
 
     &__title {
         text-align: center;

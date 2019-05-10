@@ -1,6 +1,12 @@
 <template>
   <div>
     <div class="section-admin">
+      <div class="bg-video">
+        <video class="bg-video__content" autoplay loop muted>
+          <source src="@/assets/video/Sugar.mp4">
+        </video>
+      </div>
+
       <div class="admin">
         <div class="admin__title">後台登入</div>
         <div class="admin__input">
@@ -58,7 +64,7 @@ export default {
             this.$router.push("/dashboard");
           } else {
             alert("帳號錯誤");
-           vm.user.password = "";
+            vm.user.password = "";
           }
         });
       }

@@ -1,7 +1,7 @@
 .dashproduct{
     &__create{
         text-align: right;
-        background-color: $color-purple-blue;
+        background-color: $color-info-light;
         color: $color-white;
         padding: 7px 10px;
         font-size: 20px;
@@ -10,7 +10,7 @@
 
         &:hover{
             text-decoration: none;
-            background-color: $color-blue-light;
+            background-color:$color-info-dark;
             color: $color-white;
             border-color: $color-blue-dark;
         }
@@ -23,7 +23,7 @@
         cursor: pointer;
         transition: all .3s;
         &:hover{
-            color: $color-blue-dark;
+            color: $color-green-light;
         }
     }
 }
