@@ -3,8 +3,12 @@
     margin: 0 auto;
 }
 
-
-
+//文字綠色漸層
+@mixin color-gradient{
+    background-clip: text;
+    background-image: linear-gradient(to right, $color-scss-green, $color-scss-main);
+    color: transparent;
+}
 @mixin respond($breakpoint) {
 
     @if ($breakpoint==phone) {

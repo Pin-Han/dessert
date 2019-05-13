@@ -39,9 +39,7 @@
         font-size: 28px;
         font-weight: bold;
         letter-spacing: 2px;
-        background-clip: text;
-        background-image: linear-gradient(to right, $color-scss-green, $color-scss-main);
-        color: transparent;
+        @include color-gradient;
 
     }
     &__input {

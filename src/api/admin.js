@@ -13,8 +13,8 @@ export function Dashproduct() {
 export function editproduct() {
   return request({
     url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/:id`,
-    method: 'put',
-
+    method: 'get',
+    
   });
 }
 //後台 ->建立產品

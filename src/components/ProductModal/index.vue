@@ -10,7 +10,7 @@
     >
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content border-0">
-          <div class="modal-header bg-blue-light text-white">
+          <div class="modal-header bg-scss-main text-white">
             <h1 class="modal-title" id="exampleModalLabel">
               <span>{{check}}</span>
             </h1>
@@ -151,7 +151,7 @@
               class="btn btn-outline-secondary font-size-normal"
               data-dismiss="modal"
             >取消</button>
-            <button type="button" class="btn btn-primary font-size-normal">確認</button>
+            <button type="button" class="btn btn-info font-size-normal">確認</button>
           </div>
         </div>
       </div>
@@ -163,22 +163,35 @@ import { constants } from "crypto";
 export default {
   data() {
     return {
-      tempProduct: {},
+      tempProduct: {}
     };
   },
-  props: ["isNew","productId"],
+  props: ["isNew", "productId"],
+  methods:{
+    update(){
+      console.log("234");
+    },
+  },
   computed: {
     check() {
       if (this.isNew === true) {
         return "新增產品";
-        
       } else {
-        return  "編輯產品";
-         
+        return "編輯產品";
+      }
+    },
+    checkId() {
+      if (this.productId !== undefined) {
+        return this.update();
+      } else {
+        return console.log("id",this.productId);
+        // editproduct(this.productId).then(response => {
+        //   console.log("產品內容", response);
+        // });      
+
       }
     }
-  },
-
+  }
 };
 </script>
 

@@ -61,7 +61,7 @@ export default {
     openModal(isNew, id) {
       //打開建立新產品的modal
          this.isNew = isNew;
-         console.log(id);
+         //console.log(id);
          this.tempid=id;
       $("#productModal").modal("show");
     }
