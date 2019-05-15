@@ -24,14 +24,15 @@
           <td>{{item.title}}</td>
           <td>${{item.origin_price}}</td>
           <td>${{item.price}}</td>
-          <td>{{item.is_enabled}}</td>
+          <td>{{item.is_enabled | checkActive}}</td>
           <td @click.prevent="openModal(false,item.id)">
             <i class="far fa-edit dashproduct__icon"></i>
           </td>
         </tr>
       </tbody>
     </table>
-    <ProductModal :is-new="isNew" :product-id="tempid"></ProductModal> <!--傳遞 isNew的值給予modal -->
+    <ProductModal :is-new="isNew" :product-id="tempid"></ProductModal>
+    <!--傳遞 isNew的值給予modal -->
   </div>
 </template>
 <script>
@@ -45,7 +46,7 @@ export default {
     return {
       product: [],
       isNew: false,
-      tempid:'',
+      tempid: ""
     };
   },
   //傳遞isNew true or false to ProductModal
@@ -60,14 +61,23 @@ export default {
     },
     openModal(isNew, id) {
       //打開建立新產品的modal
-         this.isNew = isNew;
-         //console.log(id);
-         this.tempid=id;
+      this.isNew = isNew;
+      //console.log(id);
+      this.tempid = id;
       $("#productModal").modal("show");
     }
   },
   created() {
     this.productall();
+  },
+filters:{
+checkActive:function(value){
+  if(value =='1'){
+    return "已啟用";
+  }else{
+    return "未啟用";
   }
+}
+},
 };
 </script>
