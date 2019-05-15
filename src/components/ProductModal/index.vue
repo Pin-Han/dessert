@@ -41,12 +41,14 @@
                     type="file"
                     id="customFile"
                     class="form-control font-size-normal"
-                    ref="files"
+                    ref="files" 
+                    
                   >
                 </div>
                 <img
                   img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
                   class="img-fluid"
+                  
                   :src="tempProduct.image"
                   alt="image"
                 >
@@ -152,7 +154,11 @@
               class="btn btn-outline-secondary font-size-normal"
               data-dismiss="modal"
             >取消</button>
-            <button type="button" class="btn btn-info font-size-normal">確認</button>
+            <button
+              type="button"
+              class="btn btn-info font-size-normal"
+              @click="updateproduct(tempProduct)"
+            >確認</button>
           </div>
         </div>
       </div>
@@ -160,8 +166,10 @@
   </div>
 </template>
 <script>
+import $ from "jquery";
+
 //後台編輯產品
-import { editproduct } from "@/api/admin";
+import { editproduct, createproduct } from "@/api/admin";
 //取得單一產品
 import { getproduct } from "@/api/product";
 
@@ -181,6 +189,26 @@ export default {
           this.tempProduct = response.product;
         }
       });
+    },
+    updateproduct(data) {
+      //按下確定鈕
+      console.log("顯示產品", data);
+      if (data.id != undefined) {
+        console.log("編輯還沒做");
+        //編輯
+      } else {
+        //建立
+        // const data={
+        //   asdasd:"1231231"
+        // }
+        createproduct(this.tempProduct).then(response => {
+          console.log("建立產品", response);
+          if (response.success) {
+            alert("商品建立成功");
+            $("#productModal").modal("hide");
+          }
+        });
+      }
     }
   },
   //監測productId 的值有無變化
@@ -188,8 +216,8 @@ export default {
     productId: function() {
       if (this.productId != undefined) {
         this.update();
-      }else{
-        this.tempProduct={};
+      } else {
+        this.tempProduct = {};
       }
     }
   },

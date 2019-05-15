@@ -13,6 +13,7 @@
           <th>售價</th>
           <th>啟用</th>
           <th>編輯</th>
+          <th>刪除</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +27,10 @@
           <td>${{item.price}}</td>
           <td>{{item.is_enabled | checkActive}}</td>
           <td @click.prevent="openModal(false,item.id)">
-            <i class="far fa-edit dashproduct__icon"></i>
+            <i class="far fa-edit dashproduct__icon dashproduct__icon-edit"></i>
+          </td>
+          <td @click.prevent="deleteitem(item.id)">
+            <i class="far fa-trash-alt dashproduct__icon dashproduct__icon-trash"></i>
           </td>
         </tr>
       </tbody>
@@ -36,7 +40,7 @@
   </div>
 </template>
 <script>
-import { Dashproduct } from "@/api/admin";
+import { Dashproduct, deleteproduct } from "@/api/admin";
 //匯入 modal
 import ProductModal from "@/components/ProductModal";
 import $ from "jquery";
@@ -65,19 +69,29 @@ export default {
       //console.log(id);
       this.tempid = id;
       $("#productModal").modal("show");
+    },
+    deleteitem(id) {
+      //刪除產品
+      deleteproduct(id).then(response =>{
+        console.log("刪除",response);
+        if(response.success){
+          alert("刪除成功");
+          //在做loading
+        }
+      })
     }
   },
   created() {
     this.productall();
   },
-filters:{
-checkActive:function(value){
-  if(value =='1'){
-    return "已啟用";
-  }else{
-    return "未啟用";
+  filters: {
+    checkActive: function(value) {
+      if (value == "1") {
+        return "已啟用";
+      } else {
+        return "未啟用";
+      }
+    }
   }
-}
-},
 };
 </script>

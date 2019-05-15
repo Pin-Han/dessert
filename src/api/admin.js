@@ -12,23 +12,21 @@ export function Dashproduct() {
 }
 //後台 -> 修改產品 
 export function editproduct(id) {
-  console.log("id",id);
   return request({
-    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/id`,
+    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${id}`,
     method: 'put',
-    
-    data:{
-      id
-    }
+
   });
 }
 //後台 ->建立產品
-export function createproduct() {
+export function createproduct(data) {
   return request({
     url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`,
     method: 'post',
-
-  });
+    data: {
+      data
+    }
+  }) ;
 }
 //後台 顯示所有產品 包括 未啟用的產品
 export function showallproduct() {
@@ -39,9 +37,9 @@ export function showallproduct() {
   });
 }
 //後台 ->刪除產品
-export function deleteproduct() {
+export function deleteproduct(product_id) {
   return request({
-    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/:product_id`,
+    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${product_id}`,
     method: 'delete',
 
   });

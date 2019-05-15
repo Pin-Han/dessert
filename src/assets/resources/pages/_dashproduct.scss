@@ -1,5 +1,5 @@
-.dashproduct{
-    &__create{
+.dashproduct {
+    &__create {
         text-align: right;
         background-color: $color-info-light;
         color: $color-white;
@@ -8,22 +8,34 @@
         border-radius: 3px;
         transition: all 0s;
 
-        &:hover{
+        &:hover {
             text-decoration: none;
-            background-color:$color-info-dark;
+            background-color: $color-info-dark;
             color: $color-white;
             border-color: $color-blue-dark;
         }
     }
-    &__table{
+
+    &__table {
         font-size: 18px;
         color: $color-black-light;
     }
-    &__icon{
+
+    &__icon {
         cursor: pointer;
         transition: all .3s;
-        &:hover{
-            color: $color-green-light;
+
+        &-edit {
+            &:hover {
+                color: $color-green-light;
+            }
         }
+
+        &-trash {
+            &:hover{
+                color:$color-primary-red;
+            }
+        }
+
     }
 }
