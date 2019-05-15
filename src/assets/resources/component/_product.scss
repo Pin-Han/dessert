@@ -34,6 +34,7 @@
             min-width: 300px;
             height: inherit;
             transition: all .3s;
+
             &:hover {
                 transform: scale(1.1);
             }
@@ -58,33 +59,72 @@
         font-size: 23px;
         display: flex;
         width: 300px;
-        justify-content: space-around;
+        justify-content: space-between;
 
-        &-title {}
+        &-title,
+        &-price {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &-title {
+            width: 190px;
+        }
 
         &-price {
             font-weight: bold;
+            width: 150px;
+
         }
     }
 
-    &__cart {
-        background-color: $color-green-light-1;
-        color: $color-primary;
+    &__more {
+        display: flex;
+        flex-direction: row;
         font-size: 20px;
         list-style: none;
         text-align: center;
-        transition: all .3s;
         text-decoration: none;
         cursor: pointer;
-        padding: 10px 90px;
-        width: 300px;
+        justify-content: space-around;
+        // width: 130px;
 
-        &:hover {
-            background-color: $color-primary;
-            color: $color-white;
-            text-decoration: none;
+        //查看更多
+        &-info,
+        &-cart {
+            transition: all .3s;
+            display: flex;
+            padding: 5px 15px;
 
         }
+
+        &-info {
+            background-color: $color-green-light-1;
+            color: $color-primary;
+
+            &:hover {
+                background-color: $color-primary;
+                color: $color-white;
+                text-decoration: none;
+
+            }
+        }
+
+        //加入購物車
+        &-cart {
+            display: flex;
+            background-color: $color-red-light;
+            color: $color-primary-red;
+
+            &:hover {
+                background-color: $color-primary-red;
+                color: $color-white;
+                text-decoration: none;
+
+            }
+        }
+
     }
 }
 
@@ -92,7 +132,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    @include respond(phone){
+
+    @include respond(phone) {
         justify-content: flex-start;
     }
 }

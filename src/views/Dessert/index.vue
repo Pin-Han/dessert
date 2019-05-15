@@ -23,7 +23,18 @@
                 <div class="product__info-title">{{item.title}}</div>
                 <div class="product__info-price">NT$ {{item.price}}</div>
               </div>
-              <a href="#" class="product__cart border-two">加入購物車</a>
+              <div class="product__more">
+                <a
+                  href="#"
+                  class="product__more-info border-two"
+                  @click.prevent="productinfo(item.id)"
+                >查看更多</a>
+
+                <a
+                  href="#"
+                  class="product__more-cart border-two"
+                >加入購物車</a>
+              </div>
             </div>
           </div>
           <Pagination/>
@@ -34,7 +45,8 @@
 </template>
 <script>
 import Pagination from "@/components/Pagination";
-import { productall } from "@/api/product";
+import { productall, getproduct } from "@/api/product";
+
 export default {
   data() {
     return {
@@ -43,6 +55,13 @@ export default {
   },
   components: {
     Pagination
+  },
+  methods: {
+    productinfo(id) {
+      getproduct(id).then(response => {
+        console.log("單一商品(未完成)", response);
+      });
+    }
   },
   created() {
     //抓取產品訊息

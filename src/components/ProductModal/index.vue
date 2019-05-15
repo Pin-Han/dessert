@@ -1,4 +1,5 @@
 <template>
+  <!-- 後台產品列表 -->
   <div>
     <div
       class="modal fade font-size-normal"
@@ -159,7 +160,11 @@
   </div>
 </template>
 <script>
+//後台編輯產品
 import { editproduct } from "@/api/admin";
+//取得單一產品
+import { getproduct } from "@/api/product";
+
 export default {
   data() {
     return {
@@ -169,31 +174,33 @@ export default {
   props: ["isNew", "productId"],
   methods: {
     update() {
-      console.log("22", this.productId);
-      editproduct(this.productId).then(response => {
-        console.log(response);
+      //取得單一產品
+      getproduct(this.productId).then(response => {
+        console.log("取得單一產品", response);
+        if (response.success) {
+          this.tempProduct = response.product;
+        }
       });
+    }
+  },
+  //監測productId 的值有無變化
+  watch: {
+    productId: function() {
+      if (this.productId != undefined) {
+        this.update();
+      }else{
+        this.tempProduct={};
+      }
     }
   },
   computed: {
     check() {
       if (this.isNew === true) {
         return "新增產品";
+        this.tempProduct = {};
       } else {
         return "編輯產品";
       }
-    },
-    checkId() {
-      return this.update();
-      // if (this.productId !== undefined) {
-      //   return this.update();
-      // } else {
-      //   return console.log("id",this.productId);
-      //   // editproduct(this.productId).then(response => {
-      //   //   console.log("產品內容", response);
-      //   // });
-
-      // }
     }
   }
 };
