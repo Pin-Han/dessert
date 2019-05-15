@@ -34,7 +34,7 @@
 </template>
 <script>
 import Pagination from "@/components/Pagination";
-import { getproduct } from "@/api/product";
+import { productall } from "@/api/product";
 export default {
   data() {
     return {
@@ -46,7 +46,7 @@ export default {
   },
   created() {
     //抓取產品訊息
-    getproduct().then(response => {
+    productall().then(response => {
       console.log(response);
       const vm = this;
       vm.products = response.products;

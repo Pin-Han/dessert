@@ -51,7 +51,7 @@ export default {
   //傳遞isNew true or false to ProductModal
 
   methods: {
-    getproduct() {
+    productall() {
       Dashproduct().then(response => {
         console.log("後台產品列表", response);
         const vm = this;
@@ -67,7 +67,7 @@ export default {
     }
   },
   created() {
-    this.getproduct();
+    this.productall();
   }
 };
 </script>

@@ -13,7 +13,7 @@ export function Dashproduct() {
 export function editproduct() {
   return request({
     url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/:id`,
-    method: 'get',
+    method: 'put',
     
   });
 }

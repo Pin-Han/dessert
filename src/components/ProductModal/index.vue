@@ -12,7 +12,7 @@
         <div class="modal-content border-0">
           <div class="modal-header bg-scss-main text-white">
             <h1 class="modal-title" id="exampleModalLabel">
-              <span>{{check}}</span>
+              <span>{{check}} {{productId}}</span>
             </h1>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="font-size-big">&times;</span>
@@ -159,7 +159,7 @@
   </div>
 </template>
 <script>
-import { constants } from "crypto";
+import { editproduct } from "@/api/admin";
 export default {
   data() {
     return {
@@ -167,10 +167,13 @@ export default {
     };
   },
   props: ["isNew", "productId"],
-  methods:{
-    update(){
-      console.log("234");
-    },
+  methods: {
+    update() {
+      console.log("22", this.productId);
+      editproduct(this.productId).then(response => {
+        console.log(response);
+      });
+    }
   },
   computed: {
     check() {
@@ -181,15 +184,16 @@ export default {
       }
     },
     checkId() {
-      if (this.productId !== undefined) {
-        return this.update();
-      } else {
-        return console.log("id",this.productId);
-        // editproduct(this.productId).then(response => {
-        //   console.log("產品內容", response);
-        // });      
+      return this.update();
+      // if (this.productId !== undefined) {
+      //   return this.update();
+      // } else {
+      //   return console.log("id",this.productId);
+      //   // editproduct(this.productId).then(response => {
+      //   //   console.log("產品內容", response);
+      //   // });
 
-      }
+      // }
     }
   }
 };

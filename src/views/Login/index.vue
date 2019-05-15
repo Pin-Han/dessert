@@ -55,7 +55,7 @@
   </div>
 </template>
 <script>
-import {getproduct} from '@/api/product';
+import {productall} from '@/api/product';
 export default {
 
   data() {
