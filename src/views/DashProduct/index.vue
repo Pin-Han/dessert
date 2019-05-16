@@ -26,7 +26,7 @@
           <td>${{item.origin_price}}</td>
           <td>${{item.price}}</td>
           <td>{{item.is_enabled | checkActive}}</td>
-          <td @click.prevent="openModal(false,item.id)">
+          <td @click.prevent="openModal(false,item)">
             <i class="far fa-edit dashproduct__icon dashproduct__icon-edit"></i>
           </td>
           <td @click.prevent="deleteitem(item.id)">
@@ -35,14 +35,16 @@
         </tr>
       </tbody>
     </table>
-    <ProductModal :is-new="isNew" :product-id="tempid"></ProductModal>
+    <ProductModal :is-new="isNew" :product="item"></ProductModal>
     <!--傳遞 isNew的值給予modal -->
   </div>
 </template>
 <script>
-import { Dashproduct, deleteproduct } from "@/api/admin";
+import { Dashproduct, deleteproduct, createproduct } from "@/api/admin";
 //匯入 modal
 import ProductModal from "@/components/ProductModal";
+import { getproduct } from "@/api/product";
+
 import $ from "jquery";
 export default {
   components: { ProductModal },
@@ -50,35 +52,57 @@ export default {
     return {
       product: [],
       isNew: false,
-      tempid: ""
+      item: []
     };
   },
   //傳遞isNew true or false to ProductModal
 
   methods: {
     productall() {
+      //顯示產品列表
       Dashproduct().then(response => {
         console.log("後台產品列表", response);
         const vm = this;
         vm.product = response.products;
       });
     },
-    openModal(isNew, id) {
+    newProduct() {
+      createproduct().then(response => {
+        console.log("新增產品", response);
+      });
+    },
+    getproductinfo() {
+      //給予api id 取得單一產品資訊
+      getproduct(this.productId).then(response => {
+        console.log("取得單一產品", response);
+        if (response.success) {
+          this.tempProduct = response.product;
+        }
+      });
+    },
+    openModal(isNew, item) {
       //打開建立新產品的modal
       this.isNew = isNew;
-      //console.log(id);
-      this.tempid = id;
+      //item=> click進來的商品資料 this.item=>props要傳遞的資料
+      //如果是新增產品 就會是undefined 設為空
+      if(item === undefined){
+
+        this.item=[];
+      }
+      else{
+      this.item = item;
+      }
       $("#productModal").modal("show");
     },
     deleteitem(id) {
       //刪除產品
-      deleteproduct(id).then(response =>{
-        console.log("刪除",response);
-        if(response.success){
+      deleteproduct(id).then(response => {
+        console.log("刪除", response);
+        if (response.success) {
           alert("刪除成功");
           //在做loading
         }
-      })
+      });
     }
   },
   created() {

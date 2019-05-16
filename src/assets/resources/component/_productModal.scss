@@ -1,0 +1,33 @@
+.modal-body {
+    display: flex;
+}
+
+.modal__left {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-img {
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+.modal__right {
+    &-title{
+        font-weight: bold;
+        font-size: 25px;
+    }&-origin{
+
+    }&-price{
+
+    }
+    &-num{
+
+    }
+    &-pay{
+
+    }
+    &-descript{
+
+    }
+}

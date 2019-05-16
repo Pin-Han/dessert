@@ -30,10 +30,7 @@
                   @click.prevent="productinfo(item.id)"
                 >查看更多</a>
 
-                <a
-                  href="#"
-                  class="product__more-cart border-two"
-                >加入購物車</a>
+                <a href="#" class="product__more-cart border-two">加入購物車</a>
               </div>
             </div>
           </div>
@@ -41,25 +38,35 @@
         </div>
       </div>
     </div>
+    <ProductInfoModal :product="this.item"></ProductInfoModal>
   </div>
 </template>
 <script>
+import $ from "jquery";
+import ProductInfoModal from "@/components/ProductInfoModal";
 import Pagination from "@/components/Pagination";
 import { productall, getproduct } from "@/api/product";
 
 export default {
   data() {
     return {
-      products: []
+      products: [],
+      item: []
     };
   },
   components: {
-    Pagination
+    Pagination,ProductInfoModal
   },
   methods: {
     productinfo(id) {
+      //取得單一商品資訊
       getproduct(id).then(response => {
-        console.log("單一商品(未完成)", response);
+        console.log(response);
+        if (response.success) {
+          this.item = response.product;
+                $("#FrontProductInfo").modal("show");
+
+        }
       });
     }
   },

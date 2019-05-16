@@ -13,7 +13,7 @@
         <div class="modal-content border-0">
           <div class="modal-header bg-scss-main text-white">
             <h1 class="modal-title" id="exampleModalLabel">
-              <span>{{check}} {{productId}}</span>
+              <span>{{status}}</span>
             </h1>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="font-size-big">&times;</span>
@@ -29,7 +29,7 @@
                     class="form-control font-size-normal"
                     id="image"
                     placeholder="請輸入圖片連結"
-                    v-model="tempProduct.image"
+                    v-model="product.image"
                   >
                 </div>
                 <div class="form-group">
@@ -41,24 +41,21 @@
                     type="file"
                     id="customFile"
                     class="form-control font-size-normal"
-                    ref="files" 
-                    
+                    ref="files"
                   >
                 </div>
                 <img
                   img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
                   class="img-fluid"
-                  
-                  :src="tempProduct.image"
                   alt="image"
+                  :src="product.image"
                 >
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
-                  <label for="title">標題</label>
+                  <label for="title"></label>
                   <input
                     type="text"
-                    v-model="tempProduct.title"
                     class="form-control font-size-normal"
                     id="title"
                     placeholder="請輸入標題"
@@ -73,7 +70,7 @@
                       class="form-control font-size-normal"
                       id="category"
                       placeholder="請輸入分類"
-                      v-model="tempProduct.category"
+                      v-model="product.category"
                     >
                   </div>
                   <div class="form-group col-md-6">
@@ -82,8 +79,8 @@
                       type="unit"
                       class="form-control font-size-normal"
                       id="unit"
-                      v-model="tempProduct.unit"
                       placeholder="請輸入單位"
+                      v-model="product.unit"
                     >
                   </div>
                 </div>
@@ -96,7 +93,7 @@
                       class="form-control font-size-normal"
                       id="origin_price"
                       placeholder="請輸入原價"
-                      v-model="tempProduct.origin_price"
+                      v-model="product.origin_price"
                     >
                   </div>
                   <div class="form-group col-md-6">
@@ -106,7 +103,7 @@
                       class="form-control font-size-normal"
                       id="price"
                       placeholder="請輸入售價"
-                      v-model="tempProduct.price"
+                      v-model="product.price"
                     >
                   </div>
                 </div>
@@ -119,7 +116,7 @@
                     class="form-control font-size-normal"
                     id="description"
                     placeholder="請輸入產品描述"
-                    v-model="tempProduct.description"
+                    v-model="product.description"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -128,8 +125,8 @@
                     type="text"
                     class="form-control font-size-normal"
                     id="content"
-                    v-model="tempProduct.content"
                     placeholder="請輸入產品說明內容"
+                    v-model="product.content"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -138,9 +135,9 @@
                       class="form-check-input"
                       type="checkbox"
                       id="is_enabled"
-                      v-model="tempProduct.is_enabled"
                       :true-value="1"
                       :false-value="0"
+                      v-model="product.is_enabled"
                     >
                     <label class="form-check-label" for="is_enabled">是否啟用</label>
                   </div>
@@ -154,11 +151,7 @@
               class="btn btn-outline-secondary font-size-normal"
               data-dismiss="modal"
             >取消</button>
-            <button
-              type="button"
-              class="btn btn-info font-size-normal"
-              @click="updateproduct(tempProduct)"
-            >確認</button>
+            <button type="button" class="btn btn-info font-size-normal" @click="newproduct()">確認</button>
           </div>
         </div>
       </div>
@@ -174,63 +167,23 @@ import { editproduct, createproduct } from "@/api/admin";
 import { getproduct } from "@/api/product";
 
 export default {
-  data() {
-    return {
-      tempProduct: {}
-    };
-  },
-  props: ["isNew", "productId"],
+  props: ["isNew", "product"],
   methods: {
-    update() {
-      //取得單一產品
-      getproduct(this.productId).then(response => {
-        console.log("取得單一產品", response);
-        if (response.success) {
-          this.tempProduct = response.product;
-        }
-      });
+    newproduct(){
+      console.log(this.product);
     },
-    updateproduct(data) {
-      //按下確定鈕
-      console.log("顯示產品", data);
-      if (data.id != undefined) {
-        console.log("編輯還沒做");
-        //編輯
-      } else {
-        //建立
-        // const data={
-        //   asdasd:"1231231"
-        // }
-        createproduct(this.tempProduct).then(response => {
-          console.log("建立產品", response);
-          if (response.success) {
-            alert("商品建立成功");
-            $("#productModal").modal("hide");
-          }
-        });
-      }
-    }
-  },
-  //監測productId 的值有無變化
-  watch: {
-    productId: function() {
-      if (this.productId != undefined) {
-        this.update();
-      } else {
-        this.tempProduct = {};
-      }
-    }
   },
   computed: {
-    check() {
-      if (this.isNew === true) {
-        return "新增產品";
-        this.tempProduct = {};
-      } else {
+    //判斷是新增還是編輯
+    status() {
+      if (this.isNew === false) {
         return "編輯產品";
+      } else  {
+        return "新增產品";
       }
     }
-  }
+  },
+
 };
 </script>
 
