@@ -22,7 +22,11 @@
         </div>
       </div>
     </div>
-    <img src="@/assets/image/sm-為什麼選擇了做甜點.png" alt="whydo" class="mobile__pic mobile-translate-y-medium">
+    <img
+      src="@/assets/image/sm-為什麼選擇了做甜點.png"
+      alt="whydo"
+      class="mobile__pic mobile-translate-y-medium"
+    >
     <div class="section-choose">
       <div class="whychoose">
         <div class="whychoose__img whychoose__img-1"></div>
@@ -51,7 +55,7 @@
     </div>
     <div class="section-noreason"></div>
     <div class="section-products">
-      <div class="product">
+      <div class="product" v-for="num in 3" :key="num">
         <div class="product__box">
           <img src="@/assets/image/item1.jpg" alt="product" class="product__box-img">
           <p class="product__box-text">本日精選</p>
@@ -60,41 +64,31 @@
           <div class="product__info-title">焦糖瑪卡龍</div>
           <div class="product__info-price">NT$450</div>
         </div>
-        <a href="#" class="product__cart">加入購物車</a>
+        <div class="product__more">
+          <a
+            href="#"
+            class="product__more-info border-two"
+            @click.prevent="productinfo(item.id)"
+          >查看更多</a>
+
+          <a href="#" class="product__more-cart border-two">加入購物車</a>
+        </div>
       </div>
-      <div class="product">
-        <div class="product__box">
-          <img src="@/assets/image/item2.jpg" alt="product" class="product__box-img">
-          <p class="product__box-text">本日精選</p>
-        </div>
-        <div class="product__info">
-          <div class="product__info-title">焦糖瑪卡龍</div>
-          <div class="product__info-price">NT$450</div>
-        </div>
-        <a href="#" class="product__cart">加入購物車</a>
-      </div>
-      <div class="product">
-        <div class="product__box">
-          <img src="@/assets/image/item3.jpg" alt="product" class="product__box-img">
-          <p class="product__box-text">本日精選</p>
-        </div>
-        <div class="product__info">
-          <div class="product__info-title">焦糖瑪卡龍</div>
-          <div class="product__info-price">NT$450</div>
-        </div>
-        <a href="#" class="product__cart">加入購物車</a>
-      </div>
+
     </div>
+    <ProductInfoModal :product="this.item"></ProductInfoModal>
   </div>
 </template>
 
 <script>
+import $ from "jquery";
 import { login } from "@/api/user";
 // @ is an alias to /src
+import ProductInfoModal from "@/components/ProductInfoModal";
 
 export default {
   name: "home",
-  components: {},
+  components: { ProductInfoModal },
   methods: {
     logfn() {
       //   const data ={
@@ -111,6 +105,16 @@ export default {
       // }).catch(error => {
       //     console.log(error);
       // });
+    },
+    productinfo(id) {
+      //取得單一商品資訊
+      getproduct(id).then(response => {
+        console.log(response);
+        if (response.success) {
+          this.item = response.product;
+          $("#FrontProductInfo").modal("show");
+        }
+      });
     }
   }
 };

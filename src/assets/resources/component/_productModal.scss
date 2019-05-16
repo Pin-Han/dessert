@@ -1,10 +1,11 @@
 .modal-body {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
 
 .modal__left {
-    flex-direction: row;
-    justify-content: space-between;
 
     &-img {
         max-width: 300px;
@@ -13,21 +14,46 @@
 }
 
 .modal__right {
-    &-title{
+    width: 400px;
+
+
+    &-productinfo {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &-title {
         font-weight: bold;
         font-size: 25px;
-    }&-origin{
-
-    }&-price{
-
     }
-    &-num{
 
+    &-origin {
+       
     }
-    &-pay{
 
+    &-price {
+        
     }
-    &-descript{
+
+    &-num {
+        width: 200px;
+    }
+
+    &-pay {
+        font-size: 24px;
+    }
+
+    &-cart {
+        // background-color: 
+        @include addtocart;
+        width: 122px;
+        
+    }
+
+    &-descript {
+       
 
     }
 }

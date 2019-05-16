@@ -4,11 +4,29 @@
 }
 
 //文字綠色漸層
-@mixin color-gradient{
+@mixin color-gradient {
     background-clip: text;
     background-image: linear-gradient(to right, $color-scss-green, $color-scss-main);
     color: transparent;
 }
+
+//加入購物車的按鈕
+@mixin addtocart {
+    padding: 10px 15px;
+    background-color: $color-red-light;
+    color: $color-primary-red;
+    transition: all .3s;
+    font-size: 20px;
+    border-radius: 2px;
+
+    &:hover {
+        background-color: $color-primary-red;
+        color: $color-white;
+        text-decoration: none;
+    }
+}
+
+
 @mixin respond($breakpoint) {
 
     @if ($breakpoint==phone) {
