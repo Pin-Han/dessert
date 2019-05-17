@@ -3,6 +3,8 @@ import Vuex from 'vuex';
 import app from './modules/app';
 import getters from './getters';
 import user from './modules/user';
+import product from './modules/product';
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -10,6 +12,7 @@ const store = new Vuex.Store({
     //引入 user
     app,
     user,
+    product,
   },
   getters,
 });

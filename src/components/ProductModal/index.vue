@@ -58,6 +58,7 @@
                     type="text"
                     class="form-control font-size-normal"
                     id="title"
+                    v-model="product.title"
                     placeholder="請輸入標題"
                   >
                 </div>

@@ -8,8 +8,7 @@ export function productall() {
     //之後加入page
   });
 }
-// 取得單一產品資訊 給予後端id
-
+//前台 取得單一產品資訊 給予後端id
 export function getproduct(id) {
   return request({
     url: `/api/${process.env.VUE_APP_CUSTOMPATH}/product/${id}`,
@@ -17,3 +16,15 @@ export function getproduct(id) {
 
   });
 }
+//前台 加入購物車
+export function addtocart(data) {
+  return request({
+    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/product/cart`,
+    method: 'post',
+    data:{
+      //傳送的資料
+    }
+  });
+}
+
+

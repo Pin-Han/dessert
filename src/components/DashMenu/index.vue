@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <loading :active.sync="isLoading"></loading> -->
     <div class="dashmenu">
       <div class="dashmenu__title" @click="gohomedash()">
         <p class="dashmenu__title-text">後台管理</p>
@@ -8,7 +9,7 @@
         <li class="dashmenu__list" @click="showproduct()">
           <i class="fas fa-box-open dashmenu__list-icon"></i> 產品列表
         </li>
-        <li class="dashmenu__list">
+        <li class="dashmenu__list" @click="showorder()">
           <i class="far fa-list-alt dashmenu__list-icon"></i> 訂單列表
         </li>
         <li class="dashmenu__list">
@@ -25,12 +26,16 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      // isLoading:false,
+    };
   },methods:{
       gohomedash(){
           this.$router.push('/dashboard');
       },showproduct(){
           this.$router.push('/dashboard/Product');
+      },showorder(){
+          this.$router.push('/dashboard/Order');
       }
   }
 };

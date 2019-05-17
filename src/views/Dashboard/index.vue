@@ -19,7 +19,8 @@ import DashNav from "@/components/DashNav";
 import DashMenu from "@/components/DashMenu";
 
 export default {
-  components: { DashNav, DashMenu }
+  components: { DashNav, DashMenu },
+
 };
 </script>
 <style lang="scss" scoped>

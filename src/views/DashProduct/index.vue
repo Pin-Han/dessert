@@ -1,5 +1,6 @@
 <template>
   <div class="dashproduct">
+    <loading :active.sync="check_loading"></loading>
     <a href="#" class="dashproduct__create" @click.prevent="openModal(true)">建立產品</a>
     <table class="table mt-4 dashproduct__table">
       <thead>
@@ -44,7 +45,7 @@ import { Dashproduct, deleteproduct, createproduct } from "@/api/admin";
 //匯入 modal
 import ProductModal from "@/components/ProductModal";
 import { getproduct } from "@/api/product";
-
+import { mapGetters } from "vuex";
 import $ from "jquery";
 export default {
   components: { ProductModal },
@@ -85,24 +86,30 @@ export default {
       this.isNew = isNew;
       //item=> click進來的商品資料 this.item=>props要傳遞的資料
       //如果是新增產品 就會是undefined 設為空
-      if(item === undefined){
-
-        this.item=[];
-      }
-      else{
-      this.item = item;
+      if (item === undefined) {
+        this.item = [];
+      } else {
+        this.item = item;
       }
       $("#productModal").modal("show");
     },
     deleteitem(id) {
       //刪除產品
-      deleteproduct(id).then(response => {
-        console.log("刪除", response);
-        if (response.success) {
-          alert("刪除成功");
-          //在做loading
-        }
+      this.$store.dispatch("ChangeLoading", true);
+      this.$store.dispatch("DeleteProduct", id).then(res => {
+        console.log("刪除產品", res);
+        this.productall();
+        this.$store.dispatch("ChangeLoading", false);
       });
+
+      // deleteproduct(id).then(response => {
+      //   console.log("刪除", response);
+      //   if (response.success) {
+      //     alert("刪除成功");
+      //     //在做loading
+      //     this.$store.dispatch("ChangeLoading",true)
+      //   }
+      // });
     }
   },
   created() {
@@ -116,6 +123,9 @@ export default {
         return "未啟用";
       }
     }
+  },
+  computed: {
+    ...mapGetters(["check_loading"])
   }
 };
 </script>

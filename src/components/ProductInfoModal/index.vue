@@ -9,7 +9,7 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <!-- <h1 class="modal-title" id="exampleModalLabel">{{ product.title }}</h1> -->
@@ -34,7 +34,7 @@
                   <option :value="num" v-for="num in 10" :key="num">選購 {{num}} {{product.unit}}</option>
                 </select>
                 <div class="modal__right-pay">共：＄{{product.num * product.price}}元</div>
-                <a href="#" class="modal__right-cart">加入購物車</a>
+                <a href="#" class="modal__right-cart" >加入購物車</a>
               </div>
 
               <div class="modal__right-descript font-size-normal">{{product.description}}</div>

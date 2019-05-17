@@ -43,7 +43,7 @@ const app = {
     },
   },
   actions: {
-    ChangeLoading: ({ commit }, { loadingstate }) => {
+    ChangeLoading: ({ commit }, loadingstate ) => {
       console.log(loadingstate);
       commit('CHANGE_LOADING', loadingstate);
     },

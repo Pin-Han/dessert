@@ -8,6 +8,7 @@ import Cart from '@/views/Cart';
 import Dashboard from '@/views/Dashboard';
 import ToDashboard from '@/components/ToDashboard';
 import DashProduct from '@/views/DashProduct';
+import DashOrder from '@/views/DashOrder';
 
 Vue.use(Router);
 
@@ -39,6 +40,10 @@ export const constantRouterMap = [
       path: 'Product',
       component: DashProduct,
       name: 'Dashboard',
+    },{
+      path: 'Order',
+      component: DashOrder,
+      name: 'DashOrder',
     }]
 
   },
