@@ -38,17 +38,19 @@
     </table>
     <ProductModal :is-new="isNew" :product="item"></ProductModal>
     <!--傳遞 isNew的值給予modal -->
+<NewproductModal></NewproductModal>
   </div>
 </template>
 <script>
 import { Dashproduct, deleteproduct, createproduct } from "@/api/admin";
 //匯入 modal
 import ProductModal from "@/components/ProductModal";
+import NewproductModal from "@/components/NewProductModal";
 import { getproduct } from "@/api/product";
 import { mapGetters } from "vuex";
 import $ from "jquery";
 export default {
-  components: { ProductModal },
+  components: { ProductModal,NewproductModal },
   data() {
     return {
       product: [],
@@ -84,6 +86,7 @@ export default {
     openModal(isNew, item) {
       //打開建立新產品的modal
       this.isNew = isNew;
+      
       //item=> click進來的商品資料 this.item=>props要傳遞的資料
       //如果是新增產品 就會是undefined 設為空
       if (item === undefined) {
@@ -91,7 +94,13 @@ export default {
       } else {
         this.item = item;
       }
+      if(isNew ===true){
+      $("#newproductModal").modal("show");
+
+      }else{
       $("#productModal").modal("show");
+
+      }
     },
     deleteitem(id) {
       //刪除產品
@@ -110,7 +119,12 @@ export default {
       //     this.$store.dispatch("ChangeLoading",true)
       //   }
       // });
-    }
+    },editproduct(){
+      //修改產品
+      this.$store,dispatch("Editproduct",data).then(response=>{
+        console.log("修改產品",response);
+      })
+    },
   },
   created() {
     this.productall();

@@ -11,11 +11,14 @@ export function Dashproduct() {
   });
 }
 //後台 -> 修改產品 
-export function editproduct(id) {
+export function editproduct(data) {
   return request({
     url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${id}`,
     method: 'put',
-
+    data: {
+      data
+      //這邊要再看一下課程
+    }
   });
 }
 //後台 ->建立產品
@@ -26,7 +29,7 @@ export function createproduct(data) {
     data: {
       data
     }
-  }) ;
+  });
 }
 //後台 顯示所有產品 包括 未啟用的產品
 export function showallproduct() {

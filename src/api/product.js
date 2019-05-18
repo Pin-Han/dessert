@@ -41,3 +41,5 @@ export function deletecart(id) {
     method: 'delete',
   });
 }
+
+

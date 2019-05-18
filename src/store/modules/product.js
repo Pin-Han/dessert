@@ -28,7 +28,16 @@ const product = {
         })
       })
     },
-    // 加入購物車
+    //修改產品 （未完成）
+    Editproduct({commit},data){
+      return new Promidse ((resolve,reject)=>{
+        editproduct(data).then(response =>{
+          resolve(response);
+        }).catch(error=>{
+          reject(error);
+        })
+      })
+    }
 
   }
 };

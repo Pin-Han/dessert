@@ -1,9 +1,9 @@
 <template>
-  <!-- 後台產品列表 修改產品的modal -->
+  <!-- 後台產品列表 新增產品的 -->
   <div>
     <div
       class="modal fade font-size-normal"
-      id="productModal"
+      id="newproductModal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -13,7 +13,7 @@
         <div class="modal-content border-0">
           <div class="modal-header bg-scss-main text-white">
             <h1 class="modal-title" id="exampleModalLabel">
-              <span>{{status}}</span>
+              <span>新增產品</span>
             </h1>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="font-size-big">&times;</span>
@@ -29,7 +29,6 @@
                     class="form-control font-size-normal"
                     id="image"
                     placeholder="請輸入圖片連結"
-                    v-model="product.image"
                   >
                 </div>
                 <div class="form-group">
@@ -48,7 +47,6 @@
                   img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
                   class="img-fluid"
                   alt="image"
-                  :src="product.image"
                 >
               </div>
               <div class="col-sm-8">
@@ -58,8 +56,8 @@
                     type="text"
                     class="form-control font-size-normal"
                     id="title"
-                    v-model="product.title"
                     placeholder="請輸入標題"
+                    v-model="product.title"
                   >
                 </div>
 
@@ -71,7 +69,6 @@
                       class="form-control font-size-normal"
                       id="category"
                       placeholder="請輸入分類"
-                      v-model="product.category"
                     >
                   </div>
                   <div class="form-group col-md-6">
@@ -81,7 +78,6 @@
                       class="form-control font-size-normal"
                       id="unit"
                       placeholder="請輸入單位"
-                      v-model="product.unit"
                     >
                   </div>
                 </div>
@@ -104,7 +100,6 @@
                       class="form-control font-size-normal"
                       id="price"
                       placeholder="請輸入售價"
-                      v-model="product.price"
                     >
                   </div>
                 </div>
@@ -117,7 +112,6 @@
                     class="form-control font-size-normal"
                     id="description"
                     placeholder="請輸入產品描述"
-                    v-model="product.description"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -127,7 +121,6 @@
                     class="form-control font-size-normal"
                     id="content"
                     placeholder="請輸入產品說明內容"
-                    v-model="product.content"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -138,7 +131,6 @@
                       id="is_enabled"
                       :true-value="1"
                       :false-value="0"
-                      v-model="product.is_enabled"
                     >
                     <label class="form-check-label" for="is_enabled">是否啟用</label>
                   </div>
@@ -152,7 +144,7 @@
               class="btn btn-outline-secondary font-size-normal"
               data-dismiss="modal"
             >取消</button>
-            <button type="button" class="btn btn-info font-size-normal" @click="update()">確認</button>
+            <button type="button" class="btn btn-info font-size-normal" @click="newproduct()">確認</button>
           </div>
         </div>
       </div>
@@ -160,31 +152,11 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
-
-//後台編輯產品
-import { editproduct, createproduct } from "@/api/admin";
-//取得單一產品
-import { getproduct } from "@/api/product";
-
 export default {
-  props: ["isNew", "product"],
-  methods: {
-    update() {
-      console.log(this.product);
-    }
-  },
-  computed: {
-    //判斷是新增還是編輯
-    status() {
-      if (this.isNew === false) {
-        return "編輯產品";
-      } else {
-        return "新增產品";
-      }
-    }
+  data() {
+    return {
+      product:{} //準備做新增產品
+    };
   }
 };
 </script>
-
-
