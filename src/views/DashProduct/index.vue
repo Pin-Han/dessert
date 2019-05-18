@@ -36,9 +36,9 @@
         </tr>
       </tbody>
     </table>
-    <ProductModal :is-new="isNew" :product="item"></ProductModal>
+    <ProductModal :is-new="isNew" :product="item" @edit="editproduct"></ProductModal>
     <!--傳遞 isNew的值給予modal -->
-<NewproductModal></NewproductModal>
+    <NewproductModal @add="newProduct"></NewproductModal>
   </div>
 </template>
 <script>
@@ -50,7 +50,7 @@ import { getproduct } from "@/api/product";
 import { mapGetters } from "vuex";
 import $ from "jquery";
 export default {
-  components: { ProductModal,NewproductModal },
+  components: { ProductModal, NewproductModal },
   data() {
     return {
       product: [],
@@ -69,9 +69,14 @@ export default {
         vm.product = response.products;
       });
     },
-    newProduct() {
-      createproduct().then(response => {
+    newProduct(data) {
+      createproduct(data).then(response => {
         console.log("新增產品", response);
+        if (response.success) {
+          alert("新增成功");
+          $("#newproductModal").modal("hide");
+          this.productall();
+        }
       });
     },
     getproductinfo() {
@@ -85,8 +90,7 @@ export default {
     },
     openModal(isNew, item) {
       //打開建立新產品的modal
-      this.isNew = isNew;
-      
+
       //item=> click進來的商品資料 this.item=>props要傳遞的資料
       //如果是新增產品 就會是undefined 設為空
       if (item === undefined) {
@@ -94,12 +98,10 @@ export default {
       } else {
         this.item = item;
       }
-      if(isNew ===true){
-      $("#newproductModal").modal("show");
-
-      }else{
-      $("#productModal").modal("show");
-
+      if (isNew === true) {
+        $("#newproductModal").modal("show");
+      } else {
+        $("#productModal").modal("show");
       }
     },
     deleteitem(id) {
@@ -119,12 +121,16 @@ export default {
       //     this.$store.dispatch("ChangeLoading",true)
       //   }
       // });
-    },editproduct(){
-      //修改產品
-      this.$store,dispatch("Editproduct",data).then(response=>{
-        console.log("修改產品",response);
-      })
     },
+    editproduct(data) {
+      //修改產品
+      // this.$store.dispatch("ChangeLoading", true);
+      this.$store.dispatch("Editproduct", data).then(response => {
+        alert("修改成功");
+        $("#productModal").modal("hide");
+        console.log("修改產品", response);
+      });
+    }
   },
   created() {
     this.productall();

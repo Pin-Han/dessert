@@ -2,7 +2,7 @@ import {
   Dashproduct,
   deleteproduct,
   createproduct,
-  addtocart
+  addtocart,editproduct
 } from "@/api/admin";
 
 const product = {
@@ -29,16 +29,29 @@ const product = {
       })
     },
     //修改產品 （未完成）
-    Editproduct({commit},data){
-      return new Promidse ((resolve,reject)=>{
-        editproduct(data).then(response =>{
+    Editproduct({
+      commit
+    }, data) {
+      return new Promise((resolve, reject) => {
+        editproduct(data).then(response => {
           resolve(response);
-        }).catch(error=>{
+        }).catch(error => {
+          reject(error);
+        })
+      })
+    },
+    getallProduct({
+      commit
+    }, data) {
+      //後台取得所有產品 包括未啟用
+      return new Promise((resolve, reject) => {
+        Dashproduct().then(response => {
+          console.log("後台產品列表", response);
+        }).catch(error =>{
           reject(error);
         })
       })
     }
-
   }
 };
 export default product;

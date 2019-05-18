@@ -29,6 +29,7 @@
                     class="form-control font-size-normal"
                     id="image"
                     placeholder="請輸入圖片連結"
+                    v-model="product.image"
                   >
                 </div>
                 <div class="form-group">
@@ -47,6 +48,7 @@
                   img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
                   class="img-fluid"
                   alt="image"
+                  :src="product.image"
                 >
               </div>
               <div class="col-sm-8">
@@ -69,6 +71,7 @@
                       class="form-control font-size-normal"
                       id="category"
                       placeholder="請輸入分類"
+                      v-model="product.category"
                     >
                   </div>
                   <div class="form-group col-md-6">
@@ -78,6 +81,7 @@
                       class="form-control font-size-normal"
                       id="unit"
                       placeholder="請輸入單位"
+                      v-model="product.unit"
                     >
                   </div>
                 </div>
@@ -100,6 +104,7 @@
                       class="form-control font-size-normal"
                       id="price"
                       placeholder="請輸入售價"
+                      v-model="product.price"
                     >
                   </div>
                 </div>
@@ -112,6 +117,7 @@
                     class="form-control font-size-normal"
                     id="description"
                     placeholder="請輸入產品描述"
+                    v-model="product.description"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -121,6 +127,7 @@
                     class="form-control font-size-normal"
                     id="content"
                     placeholder="請輸入產品說明內容"
+                    v-model="product.content"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -131,6 +138,7 @@
                       id="is_enabled"
                       :true-value="1"
                       :false-value="0"
+                      v-model="product.is_enabled"
                     >
                     <label class="form-check-label" for="is_enabled">是否啟用</label>
                   </div>
@@ -155,8 +163,24 @@
 export default {
   data() {
     return {
-      product:{} //準備做新增產品
+      product: {} //準備做新增產品
     };
+  },
+  methods: {
+    newproduct() {
+      console.log(this.product);
+      if (this.product.title === undefined) {
+        alert("產品名稱不能留空");
+        return;
+      }
+      if (this.product.is_enabled === "1") {
+        if (this.product.price === undefined) {
+          alert("產品價格未設定，請勿直接上架產品");
+          return;
+        }
+      }
+      this.$emit("add", this.product);
+    }
   }
 };
 </script>

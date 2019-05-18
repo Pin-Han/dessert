@@ -13,7 +13,7 @@
         <div class="modal-content border-0">
           <div class="modal-header bg-scss-main text-white">
             <h1 class="modal-title" id="exampleModalLabel">
-              <span>{{status}}</span>
+              <span>編輯產品</span>
             </h1>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="font-size-big">&times;</span>
@@ -168,20 +168,20 @@ import { editproduct, createproduct } from "@/api/admin";
 import { getproduct } from "@/api/product";
 
 export default {
-  props: ["isNew", "product"],
+  props: ["product"],
   methods: {
     update() {
-      console.log(this.product);
-    }
-  },
-  computed: {
-    //判斷是新增還是編輯
-    status() {
-      if (this.isNew === false) {
-        return "編輯產品";
-      } else {
-        return "新增產品";
+      if (this.product.title === undefined) {
+        alert("產品名稱不能留空");
+        return;
       }
+      if (this.product.is_enabled === "1") {
+        if (this.product.price === undefined) {
+          alert("產品價格未設定，請勿直接上架產品");
+          return;
+        }
+      }
+      this.$emit("edit", this.product);
     }
   }
 };
