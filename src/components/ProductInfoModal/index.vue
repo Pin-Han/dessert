@@ -34,7 +34,7 @@
                   <option :value="num" v-for="num in 10" :key="num">選購 {{num}} {{product.unit}}</option>
                 </select>
                 <div class="modal__right-pay">共：＄{{product.num * product.price}}元</div>
-                <a href="#" class="modal__right-cart" >加入購物車</a>
+                <a href="#" class="modal__right-cart" @click.prevent="addcart()">加入購物車</a>
               </div>
 
               <div class="modal__right-descript font-size-normal">{{product.description}}</div>
@@ -47,6 +47,11 @@
 </template>
 <script>
 export default {
-  props: ["product"]
+  props: ["product"],
+  methods: {
+    addcart(){
+      this.$emit("addcart",this.product);
+    }
+  },
 };
 </script>

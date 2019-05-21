@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <ProductInfoModal :product="this.item"></ProductInfoModal>
+    <ProductInfoModal :product="this.item" @addcart="addtocart"></ProductInfoModal>
   </div>
 </template>
 <script>
@@ -68,6 +68,9 @@ export default {
 
         }
       });
+    },addtocart(data){
+      //商品加入購物車
+      console.log("加入購物車",data);
     }
   },
   created() {

@@ -35,13 +35,14 @@
                 <div class="form-group">
                   <label for="customFile">
                     或 上傳圖片
-                    <i class="fas fa-spinner fa-spin"></i>
+                    <i class="fas fa-spinner fa-spin show-none"></i>
                   </label>
                   <input
                     type="file"
                     id="customFile"
                     class="form-control font-size-normal"
                     ref="files"
+                    @change="uploadFile"
                   >
                 </div>
                 <img
@@ -161,9 +162,8 @@
 </template>
 <script>
 import $ from "jquery";
-
 //後台編輯產品
-import { editproduct, createproduct } from "@/api/admin";
+import { editproduct, createproduct, uploadimg } from "@/api/admin";
 //取得單一產品
 import { getproduct } from "@/api/product";
 
@@ -171,20 +171,52 @@ export default {
   props: ["product"],
   methods: {
     update() {
-      if (this.product.title === undefined) {
+      if (this.product.title === "") {
         alert("產品名稱不能留空");
         return;
       }
-      if (this.product.is_enabled === "1") {
+      if (this.product.is_enabled === 1) {
         if (this.product.price === undefined) {
           alert("產品價格未設定，請勿直接上架產品");
           return;
         }
       }
       this.$emit("edit", this.product);
+    },
+    uploadFile() {
+      console.log(this);
+      const uploadedFile = this.$refs.files.files[0];
+      const formData = new FormData();
+      formData.append("file-to-upload", uploadedFile);
+        $(".fa-spin").removeClass("show-none");
+
+      uploadimg(formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(response => {
+        $(".fa-spin").addClass("show-none");
+
+        console.log(response);
+        if(response.message==="檔案格式錯誤"){
+          alert("檔案格式僅限JPEG、PNG");
+          return;
+        }
+        // if(response.message.code==="LIMIT_FILE_SIZE"){
+        //   alert("圖片過大，請選擇其他張圖片");
+        // }
+        this.$set(this.product,"image",response.imageUrl);
+        // this.image = response.imageUrl;
+      });
     }
   }
 };
 </script>
+<style scoped>
+.show-none{
+  display: none;
+}
+</style>
+
 
 

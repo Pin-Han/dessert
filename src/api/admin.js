@@ -47,3 +47,12 @@ export function deleteproduct(product_id) {
 
   });
 }
+
+//後台 上傳圖片 
+export function uploadimg(data) {
+  return request({
+    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`,
+    method: 'post',
+    data
+  })
+}

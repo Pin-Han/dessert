@@ -23,6 +23,7 @@ export function addtocart(data) {
     method: 'post',
     data:{
       //傳送的資料
+      data
     }
   });
 }

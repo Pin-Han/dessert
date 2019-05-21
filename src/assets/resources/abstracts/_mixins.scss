@@ -12,7 +12,7 @@
 
 //加入購物車的按鈕
 @mixin addtocart {
-    padding: 10px 15px;
+    padding: 5px 15px;
     background-color: $color-red-light;
     color: $color-primary-red;
     transition: all .3s;
@@ -25,6 +25,7 @@
         text-decoration: none;
     }
 }
+
 
 
 @mixin respond($breakpoint) {
