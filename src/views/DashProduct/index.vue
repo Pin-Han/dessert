@@ -113,14 +113,6 @@ export default {
         this.$store.dispatch("ChangeLoading", false);
       });
 
-      // deleteproduct(id).then(response => {
-      //   console.log("刪除", response);
-      //   if (response.success) {
-      //     alert("刪除成功");
-      //     //在做loading
-      //     this.$store.dispatch("ChangeLoading",true)
-      //   }
-      // });
     },
     editproduct(data) {
       //修改產品

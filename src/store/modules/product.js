@@ -2,9 +2,11 @@ import {
   Dashproduct,
   deleteproduct,
   createproduct,
-  addtocart,editproduct
+  editproduct
 } from "@/api/admin";
-
+import {
+  addtocart
+} from "@/api/product";
 const product = {
   state: {
 
@@ -47,7 +49,21 @@ const product = {
       return new Promise((resolve, reject) => {
         Dashproduct().then(response => {
           console.log("後台產品列表", response);
-        }).catch(error =>{
+        }).catch(error => {
+          reject(error);
+        })
+      })
+    },
+    morecart({
+      commit
+    }, data) {
+      //加入購物車
+
+      return new Promise((resolve, reject) => {
+        addtocart(data).then((response) => {
+          resolve(response);
+
+        }).catch(error => {
           reject(error);
         })
       })
