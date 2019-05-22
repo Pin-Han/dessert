@@ -1,7 +1,8 @@
 <template>
   <!-- <div id="app" class="laptop"> -->
   <!-- <router-view name="Navigation"></router-view> -->
-  <router-view/>
+  <router-view>
+  </router-view>
   <!-- </div> -->
 </template>
 

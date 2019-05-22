@@ -34,7 +34,7 @@
     flex: 1;
     background-color: $color-primary;
     color: $color-white;
-
+height: 300px;
     @include respond(phone) {
         background-color: $color-white;
         color: $color-primary;
@@ -150,7 +150,7 @@
 
         &-icon {
             cursor: pointer;
-            font-size: 7px;
+            font-size: 12px;
 
             &:hover {
                 font-size: 15px;
@@ -177,7 +177,7 @@
         transition: all .2s;
 
         &:hover {
-            color: $color-orange;
+            color: $color-primary-red;
             cursor: pointer;
             transform: scale(1.1);
         }

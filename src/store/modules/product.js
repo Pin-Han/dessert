@@ -5,15 +5,24 @@ import {
   editproduct
 } from "@/api/admin";
 import {
-  addtocart
+  addtocart,
+  getcartinfo,
+  deletecart
 } from "@/api/product";
 const product = {
   state: {
-
+    cart: [],
+    price: ''
   },
   //mutations 更改狀態
   mutations: {
-
+    //客戶的購物車內容
+    customer_cart: (state, status) => {
+      // state.cart = status;
+      state.cart = status.carts;
+      console.log("check",status);
+      state.price = status.total;
+    }
   },
   actions: {
     //後台刪除產品
@@ -42,6 +51,32 @@ const product = {
         })
       })
     },
+    //前台 取得購物車列表
+    getSelfCart({
+      commit
+    }, data) {
+      return new Promise((resolve, reject) => {
+        getcartinfo().then((response) => {
+          commit('customer_cart', response.data);
+          console.log("查看1", response);
+          resolve(response);
+        }).catch(error => {
+          reject(error);
+        })
+      })
+    },
+    //前台 刪除購物車
+    removeInCart({
+      commit
+    }, data) {
+      return new Promise((resolve, reject) => {
+        deletecart(data).then((response) => {
+          resolve(response);
+        }).catch(error => {
+          reject(error);
+        })
+      })
+    },
     getallProduct({
       commit
     }, data) {
@@ -58,7 +93,6 @@ const product = {
       commit
     }, data) {
       //加入購物車
-
       return new Promise((resolve, reject) => {
         addtocart(data).then((response) => {
           resolve(response);

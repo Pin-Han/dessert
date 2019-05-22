@@ -1,6 +1,8 @@
 <template>
   <div>
     <div class="dessert">
+      <notifications group="foo" position="bottom left" class="notice"></notifications>
+
       <loading :active.sync="check_loading"></loading>
 
       <div class="dessert__img"></div>
@@ -44,11 +46,12 @@
         </div>
       </div>
     </div>
-    <ProductInfoModal :product="this.item" @addcart="customercart"></ProductInfoModal>
+    <ProductInfoModal :product="this.item" @addcart="modalCart"></ProductInfoModal>
   </div>
 </template>
 <script>
 import $ from "jquery";
+import Vue from "vue";
 import ProductInfoModal from "@/components/ProductInfoModal";
 import Pagination from "@/components/Pagination";
 import { productall, getproduct, addtocart } from "@/api/product";
@@ -76,21 +79,52 @@ export default {
         }
       });
     },
+    modalCart(data) {
+      console.log("模組", data);
+      const cart = {
+        product_id: data.id,
+        qty: data.num
+      }
+      
+      this.$store.dispatch("ChangeLoading", true);
+
+      this.$store.dispatch("morecart", cart).then(response => {
+        console.log(response);
+        this.$store.dispatch("ChangeLoading", false);
+        if (response.success) {
+          Vue.notify({
+            group: "foo",
+            // title: "Message",
+            text: "已成功加入購物車",
+            type: "success"
+          });
+                    $("#FrontProductInfo").modal("hide");
+
+        }
+      });
+
+    },
     customercart(data) {
       console.log("購物車", data);
+
       let cart = {
         product_id: data.id,
         qty: 1
       };
+
       this.$store.dispatch("ChangeLoading", true);
 
       this.$store.dispatch("morecart", cart).then(response => {
-
         console.log(response);
         this.$store.dispatch("ChangeLoading", false);
-if(response.success){
-  alert("已加入購物車")
-}
+        if (response.success) {
+          Vue.notify({
+            group: "foo",
+            // title: "Message",
+            text: "已成功加入購物車",
+            type: "success"
+          });
+        }
       });
     }
   },

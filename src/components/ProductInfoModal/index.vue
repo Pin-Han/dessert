@@ -50,7 +50,7 @@ export default {
   props: ["product"],
   methods: {
     addcart(){
-      this.$emit("addcart",this.product);
+      this.$emit("addcart",this.product,);
     }
   },
 };
