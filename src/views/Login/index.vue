@@ -83,6 +83,8 @@ export default {
           if(res.success){
             alert("登入成功");
             vm.$router.push('/dessert');
+          }else if(!res.success){
+            alert("帳號密碼錯誤，請在確認");
           }
           // if (res.data.success) {
           //   vm.$router.push("/admin/products");

@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in product" :key="item">
+        <tr v-for="(item,index) in product" :key="index">
           <td>
             <input type="checkbox" name id>
           </td>
@@ -26,7 +26,7 @@
           <td>{{item.title}}</td>
           <td>${{item.origin_price}}</td>
           <td>${{item.price}}</td>
-          <td>{{item.is_enabled | checkActive}}</td>
+          <td :class="{'color-scss-main':item.is_enabled===1}">{{item.is_enabled | checkActive}}</td>
           <td @click.prevent="openModal(false,item)">
             <i class="far fa-edit dashproduct__icon dashproduct__icon-edit"></i>
           </td>
@@ -70,6 +70,7 @@ export default {
       });
     },
     newProduct(data) {
+
       createproduct(data).then(response => {
         console.log("新增產品", response);
         if (response.success) {
@@ -90,7 +91,6 @@ export default {
     },
     openModal(isNew, item) {
       //打開建立新產品的modal
-
       //item=> click進來的商品資料 this.item=>props要傳遞的資料
       //如果是新增產品 就會是undefined 設為空
       if (item === undefined) {

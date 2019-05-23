@@ -24,7 +24,8 @@
             <div class="modal__right">
               <div class="modal__right-productinfo">
                 <div class="modal__right-title">{{product.title}}</div>
-                <div class="modal__right-origin font-size-normal">原價 $ {{product.origin_price}} 元</div>
+                <div class="modal__right-origin font-size-normal">
+                  原價 $ {{product.origin_price}} 元</div>
                 <div class="modal__right-price font-size-normal">優惠 $ {{product.price}}元</div>
                 <select
                   name
@@ -33,7 +34,7 @@
                 >
                   <option :value="num" v-for="num in 10" :key="num">選購 {{num}} {{product.unit}}</option>
                 </select>
-                <div class="modal__right-pay">共：＄{{product.num * product.price}}元</div>
+                <div class="modal__right-pay" >共：＄{{product.num * product.price}}元</div>
                 <a href="#" class="modal__right-cart" @click.prevent="addcart()">加入購物車</a>
               </div>
 
@@ -51,7 +52,10 @@ export default {
   methods: {
     addcart(){
       this.$emit("addcart",this.product,);
-    }
+    },
+
   },
+
+
 };
 </script>

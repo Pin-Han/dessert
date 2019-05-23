@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="dessert">
-      <notifications group="foo" position="bottom left" class="notice"></notifications>
+      <notifications group="foo" position="top left" class="notice"></notifications>
 
       <loading :active.sync="check_loading"></loading>
 
@@ -18,8 +18,8 @@
         </div>
         <div class="dessert__product">
           <div class="products">
-            <div class="product" v-for="item in products" :key="item">
-              <div class="product__box">
+            <div class="product" v-for="(item,index) in products" :key="index">
+              <div class="product__box border-two">
                 <img :src="item.image" alt="product" class="product__box-img border-two">
                 <p class="product__box-text">本日精選</p>
               </div>
@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          <Pagination></Pagination>
+          <Pagination :pages="this.pagination" @changePage="allstore"></Pagination>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ export default {
     return {
       products: [],
       item: [],
-      pagination: [],
+      pagination: []
     };
   },
   components: {
@@ -70,18 +70,25 @@ export default {
     ProductInfoModal
   },
   methods: {
-    allstore(page=1) {
+    allstore(page = 1) {
       //顯示所有商品
-      console.log(page)
-      this.$store.dispatch('showStore',page).then(response =>{
-        console.log("查看",response);
-      })
+      // console.log(page)
+      this.$store.dispatch("ChangeLoading", true);
+
+      this.$store.dispatch("showStore", page).then(response => {
+        console.log("查看", response);
+        this.$store.dispatch("ChangeLoading", false);
+        $(window).scrollTop("0");
+        this.products = response.products;
+        this.pagination = response.pagination;
+      });
     },
     productinfo(id) {
       //取得單一商品資訊
       getproduct(id).then(response => {
         console.log(response);
         if (response.success) {
+          response.product.num = 1; //給予預設值為1
           this.item = response.product;
           $("#FrontProductInfo").modal("show");
         }

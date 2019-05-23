@@ -3,11 +3,11 @@
     <div class="section-cart">
       <div class="shopping">
         <loading :active.sync="check_loading"></loading>
-        <notifications group="cart" position="bottom left" class="notice"></notifications>
+        <notifications group="cart" position="top left" class="notice"></notifications>
 
         <div class="shopping__title">您的購物車</div>
         <p v-if="this.product_cart == ''">購物車目前沒有商品，趕快去購物吧！</p>
-        <div class="cart" v-for="item in product_cart" :key="item">
+        <div class="cart" v-for="(item,index) in product_cart" :key="index">
           <img :src="item.product.image" alt="item1" class="cart__img">
           <div class="cart__name">
             <p>{{item.product.title}}</p>
@@ -20,7 +20,7 @@
           </div>
           <div class="cart__price">NT${{item.total}}</div>
           <div class="cart__trash">
-            <i class="fas fa-trash-alt" @click="removecart(item.id)"></i>
+            <i class="fas fa-trash-alt" @click="removecart(item)"></i>
           </div>
         </div>
       </div>
@@ -57,16 +57,18 @@ export default {
     };
   },
   methods: {
-    removecart(id) {
+    removecart(data) {
+      console.log(data);
+      this.itemname=data.product.title;
       this.$store.dispatch("ChangeLoading", true);
-      this.$store.dispatch("removeInCart", id).then(response => {
+      this.$store.dispatch("removeInCart", data.id).then(response => {
         console.log("刪除", response);
         if (response.success) {
           this.$store.dispatch("ChangeLoading", false);
           Vue.notify({
             group: "cart",
             // title: "Message",
-            text: "已將商品刪除",
+            text: `已將 ${this.itemname} 從購物車刪除`,
             type: "success"
           });
           this.getSelfCart();

@@ -171,7 +171,7 @@ export default {
   props: ["product"],
   methods: {
     update() {
-      if (this.product.title === "") {
+      if (this.product.title === undefined) {
         alert("產品名稱不能留空");
         return;
       }
@@ -180,6 +180,9 @@ export default {
           alert("產品價格未設定，請勿直接上架產品");
           return;
         }
+      }
+            if(this.product.is_enabled === undefined){
+        this.product.is_enabled = 0;
       }
       this.$emit("edit", this.product);
     },

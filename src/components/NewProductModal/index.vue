@@ -15,7 +15,7 @@
             <h1 class="modal-title" id="exampleModalLabel">
               <span>新增產品</span>
             </h1>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" @click.prevent="cancelCreate()"class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="font-size-big">&times;</span>
             </button>
           </div>
@@ -137,13 +137,15 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      id="is_enabled"
+                      id="enabled"
                       :true-value="1"
+                      name="is_enabled"
                       :false-value="0"
                       v-model="product.is_enabled"
                     >
-                    <label class="form-check-label" for="is_enabled">是否啟用</label>
+                    <label class="form-check-label" for="enabled">是否啟用</label>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -153,6 +155,7 @@
               type="button"
               class="btn btn-outline-secondary font-size-normal"
               data-dismiss="modal"
+              @click.prevent="cancelCreate()"
             >取消</button>
             <button type="button" class="btn btn-info font-size-normal" @click="newproduct()">確認</button>
           </div>
@@ -173,8 +176,7 @@ export default {
   },
   methods: {
     newproduct() {
-      console.log(this.product);
-      if (this.product.title === "") {
+      if (this.product.title === undefined) {
         alert("產品名稱不能留空");
         return;
       }
@@ -184,7 +186,14 @@ export default {
           return;
         }
       }
+      if(this.product.is_enabled === undefined){
+        this.product.is_enabled = 0;
+      }
       this.$emit("add", this.product);
+      this.cancelCreate();
+    },cancelCreate(){
+      //刪除內容，使得預設是空的
+      this.product={}
     },
     uploadFile() {
       console.log(this);
@@ -212,7 +221,8 @@ export default {
         // this.image = response.imageUrl;
       });
     }
-  }
+  },
+
 };
 </script>
 <style scoped>

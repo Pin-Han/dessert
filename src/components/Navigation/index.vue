@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="for-mobile">
     <div class="navigation">
       <a class="navigation__logo" href="#/">
         <img src="@/assets/image/logo-all-dark.png" alt="logo" class="navigation__logo-img">
@@ -60,21 +60,19 @@ import $ from "jquery";
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
   methods: {
     //登入，要判斷是否是登入還登出
     login(data) {
       console.log(data);
-      if(data===false){
-        this.$router.push('/login');
-      }else{
-        this.$store.dispatch("LogOut",data).then(response=>{
-          if(response.success === true){
+      if (data === false) {
+        this.$router.push("/login");
+      } else {
+        this.$store.dispatch("LogOut", data).then(response => {
+          if (response.success === true) {
             alert("已成功登出");
-            this.$store.dispatch('Check');
+            this.$store.dispatch("Check");
           }
         });
       }
@@ -82,7 +80,7 @@ export default {
   },
   computed: {
     //確認是否登入
-    ...mapGetters(["check_login"]),
+    ...mapGetters(["check_login", "product_cart"]),
     ...mapActions(["Login"])
   },
   filters: {
@@ -93,21 +91,21 @@ export default {
         return "登出";
       }
     }
+  },
+  mounted() {
+    //mounted =>元素已經渲染完成，可以省略掉 $(document).ready....
+    // //手機板 導覽列展開
+   // $(document).ready(function() {
+      $(".mobile-nav__hamberger").click(function() {
+        $(".mobile-menu").slideToggle("normal");
+      });
+      $(".mobile-menu__item-menu").click(function(){
+                $(".mobile-menu").slideToggle("normal");
+
+      })
+    //});
   }
 };
-
-//手機板 導覽列展開
-$(document).ready(function() {
-  $(".mobile-nav__hamberger").click(function() {
-    $(".mobile-menu").slideToggle("normal");
-    document.querySelector(".mobile-menu").style.display = "block";
-  });
-  $(".mobile-menu__item-menu").click(function() {
-    $(".mobile-menu").slideToggle("normal");
-    document.querySelector(".mobile-menu").style.display = "none";
-  });
-});
 </script>
-<style scoped>
-</style>
+
 

@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+          <notifications group="foo" position="top left" class="notice"></notifications>
+
     <!-- 首頁的圖片大圖 -->
     <div class="home__img"></div>
     <div class="section-featured">
@@ -55,14 +57,14 @@
     </div>
     <div class="section-noreason"></div>
     <div class="section-products">
-      <div class="product" v-for="num in 3" :key="num">
-        <div class="product__box">
-          <img src="@/assets/image/item1.jpg" alt="product" class="product__box-img">
-          <p class="product__box-text">本日精選</p>
+      <div class="product" v-for="(item,index) in this.products" :key="index" v-if="index < 3">
+        <div class="product__box border-two">
+          <img :src="item.image" alt="product" class="product__box-img">
+          <p class="product__box-text">最新商品</p>
         </div>
         <div class="product__info">
-          <div class="product__info-title">焦糖瑪卡龍</div>
-          <div class="product__info-price">NT$450</div>
+          <div class="product__info-title">{{item.title}}</div>
+          <div class="product__info-price">NT${{item.price}}</div>
         </div>
         <div class="product__more">
           <a
@@ -71,24 +73,32 @@
             @click.prevent="productinfo(item.id)"
           >查看更多</a>
 
-          <a href="#" class="product__more-cart border-two">加入購物車</a>
+          <a href="#" class="product__more-cart border-two" @click.prevent="customercart(item)">加入購物車</a>
         </div>
       </div>
-
     </div>
-    <ProductInfoModal :product="this.item"></ProductInfoModal>
+    <ProductInfoModal :product="this.item" @addcart="modalCart"></ProductInfoModal>
   </div>
 </template>
 
 <script>
 import $ from "jquery";
 import { login } from "@/api/user";
+import Vue from "vue";
+
+import { productall, getproduct, addtocart } from "@/api/product";
+
 // @ is an alias to /src
 import ProductInfoModal from "@/components/ProductInfoModal";
-
 export default {
   name: "home",
   components: { ProductInfoModal },
+  data(){
+    return{
+      products:{},
+      item:[]
+    }
+  },
   methods: {
     logfn() {
       //   const data ={
@@ -111,11 +121,67 @@ export default {
       getproduct(id).then(response => {
         console.log(response);
         if (response.success) {
+          response.product.num=1; //給予預設值為1
           this.item = response.product;
           $("#FrontProductInfo").modal("show");
         }
       });
-    }
+    },
+    //加入購物車
+        customercart(data) {
+      console.log("購物車", data);
+
+      let cart = {
+        product_id: data.id,
+        qty: 1
+      };
+
+      this.$store.dispatch("ChangeLoading", true);
+
+      this.$store.dispatch("morecart", cart).then(response => {
+        console.log(response);
+        this.$store.dispatch("ChangeLoading", false);
+        if (response.success) {
+          Vue.notify({
+            group: "foo",
+            // title: "Message",
+            text: "已成功加入購物車",
+            type: "success"
+          });
+        }
+      });
+    },
+    allstore(page = 1) {
+      //顯示所有商品
+      console.log(page);
+      this.$store.dispatch("showStore", page).then(response => {
+        console.log("查看", response);
+        this.products = response.products;
+      });
+    },    modalCart(data) {
+      const cart = {
+        product_id: data.id,
+        qty: data.num
+      };
+
+      this.$store.dispatch("ChangeLoading", true);
+
+      this.$store.dispatch("morecart", cart).then(response => {
+        console.log(response);
+        this.$store.dispatch("ChangeLoading", false);
+        if (response.success) {
+          Vue.notify({
+            group: "foo",
+            // title: "Message",
+            text: "已成功加入購物車",
+            type: "success"
+          });
+          $("#FrontProductInfo").modal("hide");
+        }
+      });
+    },
+  },created(){
+    this.allstore();
   }
 };
 </script>
