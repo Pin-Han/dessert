@@ -1,11 +1,10 @@
 import request from '@/utils/request';
 
 //前台 產品總攬 (只顯示啟用的產品)
-export function productall() {
+export function productall(page) {
   return request({
-    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/products`,
+    url: `/api/${process.env.VUE_APP_CUSTOMPATH}/products?page=${page}`,
     method: 'get',
-    //之後加入page
   });
 }
 //前台 取得單一產品資訊 給予後端id

@@ -7,12 +7,13 @@ import {
 import {
   addtocart,
   getcartinfo,
-  deletecart
+  deletecart,productall
 } from "@/api/product";
 const product = {
   state: {
     cart: [],
-    price: ''
+    price: '',
+    allproduct:[]
   },
   //mutations 更改狀態
   mutations: {
@@ -25,6 +26,16 @@ const product = {
     }
   },
   actions: {
+    //前台 顯示所有商品 (不顯示未啟用)
+    showStore({commit},data){
+      return new Promise((resolve,reject)=>{
+        productall(data).then(response =>{
+          resolve(response);
+        }).catch(error =>{
+          reject(error);
+        })
+      })
+    },
     //後台刪除產品
     DeleteProduct({
       commit
@@ -39,7 +50,7 @@ const product = {
         })
       })
     },
-    //修改產品 （未完成）
+    //修改產品
     Editproduct({
       commit
     }, data) {

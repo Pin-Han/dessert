@@ -24,7 +24,7 @@
           <div class="bottom__left-info">
             <p>07-1234-5678</p>
             <p>sweetaste@email.com</p>
-            <p>800 高雄市新興區幸福路 520 號</p>
+            <p>220 新北市板橋區四川路二段58號</p>
           </div>
           <div class="bottom__left-icon">
             <i class="fab fa-facebook"></i>

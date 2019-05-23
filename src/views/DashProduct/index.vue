@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in product">
+        <tr v-for="item in product" :key="item">
           <td>
             <input type="checkbox" name id>
           </td>

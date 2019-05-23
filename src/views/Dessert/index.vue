@@ -18,7 +18,7 @@
         </div>
         <div class="dessert__product">
           <div class="products">
-            <div class="product" v-for="item in products">
+            <div class="product" v-for="item in products" :key="item">
               <div class="product__box">
                 <img :src="item.image" alt="product" class="product__box-img border-two">
                 <p class="product__box-text">本日精選</p>
@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          <Pagination/>
+          <Pagination></Pagination>
         </div>
       </div>
     </div>
@@ -55,13 +55,14 @@ import Vue from "vue";
 import ProductInfoModal from "@/components/ProductInfoModal";
 import Pagination from "@/components/Pagination";
 import { productall, getproduct, addtocart } from "@/api/product";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       products: [],
-      item: []
+      item: [],
+      pagination: [],
     };
   },
   components: {
@@ -69,6 +70,13 @@ export default {
     ProductInfoModal
   },
   methods: {
+    allstore(page=1) {
+      //顯示所有商品
+      console.log(page)
+      this.$store.dispatch('showStore',page).then(response =>{
+        console.log("查看",response);
+      })
+    },
     productinfo(id) {
       //取得單一商品資訊
       getproduct(id).then(response => {
@@ -79,13 +87,13 @@ export default {
         }
       });
     },
+    //打開modal 加入購物車
     modalCart(data) {
-      console.log("模組", data);
       const cart = {
         product_id: data.id,
         qty: data.num
-      }
-      
+      };
+
       this.$store.dispatch("ChangeLoading", true);
 
       this.$store.dispatch("morecart", cart).then(response => {
@@ -98,12 +106,11 @@ export default {
             text: "已成功加入購物車",
             type: "success"
           });
-                    $("#FrontProductInfo").modal("hide");
-
+          $("#FrontProductInfo").modal("hide");
         }
       });
-
     },
+    //加入購物車
     customercart(data) {
       console.log("購物車", data);
 
@@ -130,12 +137,13 @@ export default {
   },
   created() {
     //抓取產品訊息
-    productall().then(response => {
-      console.log(response);
-      const vm = this;
-      vm.products = response.products;
-      console.log("顯示產品", vm.products);
-    });
+    this.allstore();
+    // productall().then(response => {
+    //   console.log(response);
+    //   const vm = this;
+    //   vm.products = response.products;
+    //   console.log("顯示產品", vm.products);
+    // });
   },
   computed: {
     ...mapGetters(["check_loading"])
