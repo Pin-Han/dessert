@@ -9,6 +9,10 @@ import Dashboard from '@/views/Dashboard';
 import ToDashboard from '@/components/ToDashboard';
 import DashProduct from '@/views/DashProduct';
 import DashOrder from '@/views/DashOrder';
+import Transport from '@/views/Transport';
+import Payinfo from '@/views/Payinfo';
+import Checkout from '@/views/Checkout';
+
 
 Vue.use(Router);
 
@@ -77,6 +81,18 @@ export const constantRouterMap = [
       meta: {
         requiresAuth: true
       },
+    },{
+      path: '/transport',
+      component: () => import('../views/Transport'),
+      name: 'Transport',
+    },{
+      path: '/payinfo',
+      component: () => import('../views/Payinfo'),
+      name: 'Payinfo',
+    },{
+      path: '/checkout',
+      component: () => import('../views/Checkout'),
+      name: 'Checkout',
     }]
   },
 

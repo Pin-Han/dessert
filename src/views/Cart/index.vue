@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="bill">
+      <div class="bill  border-two">
         <div class="bill__title">訂單摘要</div>
         <div class="bill__price">
           <p>小計</p>
