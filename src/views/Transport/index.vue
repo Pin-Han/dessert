@@ -10,20 +10,28 @@
           <label for="firstname">姓氏</label>
           <input type="text" name="firstname" id="firstname" placeholder="王">
         </div>
+        <div class="transport__part-name">
+          <label for="firstname">名字</label>
+          <input type="text" name="firstname" id="firstname" placeholder="王">
+        </div>
       </div>
       <div class="transport__part">
         <div class="transport__part-phone">
-          <label for="firstname">姓氏</label>
+          <label for="firstname">電話</label>
           <input type="text" name="firstname" id="firstname" placeholder="王">
         </div>
       </div>
       <div class="transport__part">
-                  <div class="transport__part-phone">
-          <label for="firstname">姓氏</label>
+        <div class="transport__part-county">
+          <label for="firstname">地址</label>
           <input type="text" name="firstname" id="firstname" placeholder="王">
         </div>
       </div>
-      <div class="transport__part"></div>
+      <div class="transport__part">
+        <div class="transport__part-address">
+          <input type="text" name="firstname" id="firstname" placeholder="幸福路">
+        </div>
+      </div>
     </div>
     <OrderInfo></OrderInfo>
   </div>
