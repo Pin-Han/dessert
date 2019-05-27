@@ -5,6 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  publicPath:'/dessert/',
   devServer: {
     disableHostCheck: true,
   },
