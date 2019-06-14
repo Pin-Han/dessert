@@ -20,25 +20,37 @@
         font-size: 36px;
         display: flex;
         justify-content: space-between;
+
     }
 
 }
 
 .status {
-width: 130px;
-display: flex;
-justify-content: space-between;
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+align-items: center;
     &__item {
-       
+
         width: 21px;
         height: 21px;
         border: 1px solid $color-green-light-1;
         border-radius: 50%;
+       
+        
+       
     }
-    &::before{
-        content: "";
-        border-bottom: 1px solid $color-green-light-1;
 
+    &::before {
+        content: "";
+        width: 90px;
+        height: 1px;
+        background-color: $color-green-light-1;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        z-index: 0;
     }
 
 }
