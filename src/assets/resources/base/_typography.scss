@@ -1,0 +1,44 @@
+.checkout {
+    //transport payinfo checkout
+    display: flex;
+    margin: 60px auto;
+    width: 940px;
+    justify-content: center;
+
+    &__steps {
+        width: 460px;
+        margin: 0 10px;
+        background-color: $color-primary;
+        color: $color-green-light-1;
+        padding: 10px 40px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    &__title {
+        font-size: 36px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+.status {
+width: 130px;
+display: flex;
+justify-content: space-between;
+    &__item {
+       
+        width: 21px;
+        height: 21px;
+        border: 1px solid $color-green-light-1;
+        border-radius: 50%;
+    }
+    &::before{
+        content: "";
+        border-bottom: 1px solid $color-green-light-1;
+
+    }
+
+}

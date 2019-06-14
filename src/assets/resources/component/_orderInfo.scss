@@ -1,0 +1,82 @@
+.orderinfo {
+    width: 300px;
+    margin: 0 10px;
+    color: $color-green-light-2;
+
+
+}
+
+.order {
+    border: 1px solid $color-green-light-1;
+
+    &__title {
+        text-align: center;
+        padding: 15px 0;
+        font-size: 25px;
+        background-color: $color-green-light-1;
+        font-weight: normal;
+        color: inherit;
+    }
+
+    &__price {
+        padding: 15px 20px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__total {
+        font-weight: bold;
+        font-size: 22.5px;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+}
+
+.list {
+    border: 1px solid $color-green-light-1;
+    margin-top: 20px;
+
+    &__title {
+        text-align: center;
+        padding: 15px 0;
+        font-size: 25px;
+        background-color: $color-green-light-1;
+        font-weight: normal;
+        color: inherit;
+    }
+
+}
+
+//產品
+.list-product {
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-around;
+
+    &__img {
+        width: 120px;
+        height: 80px;
+        overflow: hidden;
+
+        &-fix {
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    &__product {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 18px;
+
+        &-name {}
+
+        &-price {}
+    }
+}

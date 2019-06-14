@@ -95,14 +95,13 @@ export default {
   mounted() {
     //mounted =>元素已經渲染完成，可以省略掉 $(document).ready....
     // //手機板 導覽列展開
-   // $(document).ready(function() {
-      $(".mobile-nav__hamberger").click(function() {
-        $(".mobile-menu").slideToggle("normal");
-      });
-      $(".mobile-menu__item-menu").click(function(){
-                $(".mobile-menu").slideToggle("normal");
-
-      })
+    // $(document).ready(function() {
+    $(".mobile-nav__hamberger").click(function() {
+      $(".mobile-menu").slideToggle("normal");
+    });
+    $(".mobile-menu__item-menu").click(function() {
+      $(".mobile-menu").slideToggle("normal");
+    });
     //});
   }
 };
