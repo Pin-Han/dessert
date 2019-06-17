@@ -10,13 +10,12 @@
         margin: 0 10px;
         background-color: $color-primary;
         color: $color-green-light-1;
-        padding: 10px 40px;
         display: flex;
         flex-direction: column;
-
     }
 
     &__title {
+        padding: 10px 40px;
         font-size: 36px;
         display: flex;
         justify-content: space-between;
@@ -30,16 +29,17 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-align-items: center;
+    align-items: center;
+
     &__item {
 
         width: 21px;
         height: 21px;
         border: 1px solid $color-green-light-1;
         border-radius: 50%;
-       
-        
-       
+
+
+
     }
 
     &::before {
@@ -53,4 +53,48 @@ align-items: center;
         z-index: 0;
     }
 
+}
+
+.type {
+    padding: 5px 40px;
+    display: flex;
+    align-items: flex-end;
+
+    &__half {
+        flex: 1;
+        margin-right: 5px;
+    }
+
+    &__label {
+        font-size: 22.5px;
+    }
+
+    &__input {
+        font-size: 18px;
+        outline: none;
+        font-family: "cwTeXYen", sans-serif;
+        border: none;
+        padding: 0 10px;
+        height: 50px;
+        background-color: $color-green-light-1;
+        width: 100%;
+
+    }
+}
+
+.next-step {
+    background-color: $color-yellow-light;
+    padding: 20px 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22.5px;
+    color: $color-primary;
+    margin-top: 20px;
+    transition: all .2s;
+
+    &:hover {
+        text-decoration: none;
+        color: $color-primary;
+        background-color: $color-yellow-lightest;
+    }
 }

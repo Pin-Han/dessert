@@ -1,0 +1,29 @@
+.section-invoice {
+    padding: 5px 40px;
+}
+
+.invoice {
+    border: 1px solid $color-green-light-1;
+    font-size: 18px;
+
+    display: flex;
+
+    &__option {
+        display: none;
+    }
+
+    &__btn {
+        padding: 15px 0;
+        flex: 0 0 50%;
+        text-align: center;
+        margin-bottom: 0;
+        height: 50px;
+        align-items: center;
+    }
+}
+
+.invoice__option:checked+.invoice__btn {
+    font-size: 22.5px;
+    background-color: $color-green-light-1;
+    color: $color-green-light-2;
+}
