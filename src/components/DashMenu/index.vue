@@ -12,7 +12,7 @@
         <li class="dashmenu__list" @click="showorder()">
           <i class="far fa-list-alt dashmenu__list-icon"></i> 訂單列表
         </li>
-        <li class="dashmenu__list">
+        <li class="dashmenu__list" @click="tocoupon()">
           <i class="fas fa-ticket-alt dashmenu__list-icon"></i> 優惠券
         </li>
       </ul>
@@ -29,14 +29,21 @@ export default {
     return {
       // isLoading:false,
     };
-  },methods:{
-      gohomedash(){
-          this.$router.push('/dashboard');
-      },showproduct(){
-          this.$router.push('/dashboard/Product');
-      },showorder(){
-          this.$router.push('/dashboard/Order');
-      }
+  },
+  methods: {
+    gohomedash() {
+      this.$router.push("/dashboard");
+    },
+    showproduct() {
+      this.$router.push("/dashboard/Product");
+    },
+    showorder() {
+      this.$router.push("/dashboard/Order");
+    },
+    tocoupon(){
+            this.$router.push("/dashboard/Coupon");
+
+    }
   }
 };
 </script>

@@ -9,6 +9,7 @@ import Dashboard from '@/views/Dashboard';
 import ToDashboard from '@/components/ToDashboard';
 import DashProduct from '@/views/DashProduct';
 import DashOrder from '@/views/DashOrder';
+import DashCoupon from '@/views/DashCoupon';
 import Transport from '@/views/Transport';
 import Payinfo from '@/views/Payinfo';
 import Checkout from '@/views/Checkout';
@@ -48,6 +49,10 @@ export const constantRouterMap = [
       path: 'Order',
       component: DashOrder,
       name: 'DashOrder',
+    },{
+      path: 'Coupon',
+      component: DashCoupon,
+      name: 'DashCoupon',
     }]
 
   },
