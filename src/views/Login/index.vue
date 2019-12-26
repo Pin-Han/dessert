@@ -30,11 +30,11 @@
             placeholder="請輸入密碼"
           >
         </div>
-        <div class="login__remember">
+        <!-- <div class="login__remember">
           <input type="checkbox" name id>
           <p>記住我</p>
           
-        </div>
+        </div> -->
         <div class="login__btn" @click="signin()">登入</div>
       </div>
       <div class="social">

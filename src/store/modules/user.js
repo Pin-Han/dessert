@@ -51,8 +51,6 @@ const user = {
           // commit('SET_TOKEN', '');
           // commit('SET_ROLES', []);
           commit('Check_Login', response.success);
-
-          console.log("確認登入", response);
           // removeToken();
           resolve(response);
         }).catch(error => {

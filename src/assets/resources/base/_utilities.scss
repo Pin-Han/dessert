@@ -8,7 +8,12 @@
     border-radius: 2px !important;
 }
 
-
+.show-flex{
+    display: flex;
+}
+.margin-left-five{
+    margin-left: 5px;
+}
 //藍色
 .bg-blue-light{
     background-color: $color-purple-blue;

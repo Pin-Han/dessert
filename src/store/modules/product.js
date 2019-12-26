@@ -21,7 +21,6 @@ const product = {
     customer_cart: (state, status) => {
       // state.cart = status;
       state.cart = status.carts;
-      console.log("check",status);
       state.price = status.total;
     }
   },

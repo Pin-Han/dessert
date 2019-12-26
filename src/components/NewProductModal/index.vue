@@ -15,7 +15,7 @@
             <h1 class="modal-title" id="exampleModalLabel">
               <span>新增產品</span>
             </h1>
-            <button type="button" @click.prevent="cancelCreate()"class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" @click.prevent="cancelCreate()" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="font-size-big">&times;</span>
             </button>
           </div>

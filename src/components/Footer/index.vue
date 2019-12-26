@@ -34,7 +34,7 @@
         <div class="bottom__right">
           <img src="@/assets/image/sm-今天是個吃甜點的好日子.png" alt="eatdessert" class="bottom__right-img">
           <div class="bottom__right-copyright">
-            <p>此網頁為rondo_lin個人練習不具任何商業用途，版型由六角學院設計。</p>
+            <p>此網頁為Patrick_lin個人練習不具任何商業用途，版型由六角學院設計。</p>
             <p>© 2018 Sweetaste* All Rights Reserved</p>
           </div>
         </div>

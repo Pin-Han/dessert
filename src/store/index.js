@@ -4,6 +4,7 @@ import app from './modules/app';
 import getters from './getters';
 import user from './modules/user';
 import product from './modules/product';
+import coupon from './modules/coupon';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ const store = new Vuex.Store({
     app,
     user,
     product,
+    coupon,
   },
   getters,
 });

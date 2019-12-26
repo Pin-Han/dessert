@@ -16,22 +16,18 @@ NProgress.configure({
 const whiteList = ['/login']; // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
-  console.log("to", to, "from", from, "next", next);
   NProgress.start(); // start progress bar
   if (to.meta.requiresAuth) {
-    console.log("需要驗證");
     store.dispatch("Check").then(response => {
-      console.log(response,to.name);
 
-      if (to.name == 'Dashboard') {
+      if (to.path == '/dashboard') {
         if(response.uid==='Bxx012Np5ebUtnLN8UlxWIWe6EA3'){
           next();
         }
         else{
-          console.log("這裡");
-          alert("錯誤");
+          alert("請先登入");
           next({
-            path: '/'
+            path: '/admin'
           });
         }
       } else {

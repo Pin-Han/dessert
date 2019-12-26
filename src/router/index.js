@@ -39,7 +39,7 @@ export const constantRouterMap = [
     component: Dashboard,
     name: 'Dashboard',
     meta: {
-      //requiresAuth: true//<=先拉掉
+      requiresAuth: true
     },
     children:[{
       path: 'Product',
